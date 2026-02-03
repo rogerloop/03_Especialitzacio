@@ -1,0 +1,4 @@
+CREATE TABLE table1 (
+id INT PRIMARY KEY,
+name VARCHART (50)
+);
