@@ -232,6 +232,7 @@ per la qual cosa et demanen la informació sobre la quantitat de transaccions qu
 però el departament de recursos humans és exigent i vol un llistat de les empreses on especifiquis si tenen més de 400 transaccions o menys.
 */;
 
+-- Opció 1 : Amb subquery per reduir la mida del JOIN optimitzat per millor rendiment en Dataset molt gran
 
 SELECT  c.company_name AS empresa,
         qo.operacions AS num_transaccions,
@@ -248,5 +249,21 @@ JOIN (
     GROUP BY t.company_id
 ) AS qo
 ON c.id = qo.company_id
+ORDER BY num_transaccions DESC
+;
+
+
+-- Opció 2: Codi optimitzat sense subquery, més fàcilde llegir i entendre
+
+SELECT  c.company_name AS empresa,
+        COUNT (t.id) AS num_transaccions,
+CASE
+    WHEN  COUNT (t.id) > 400 THEN 'Te MES de 400 transaccions'
+    ELSE 'Te MENYS de 400 transaccions'
+END AS tipus_client
+FROM company c
+JOIN transaction t ON c.id = t.company_id
+WHERE declined = 0
+GROUP BY empresa
 ORDER BY num_transaccions DESC
 ;
