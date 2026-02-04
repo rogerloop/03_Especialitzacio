@@ -299,6 +299,20 @@ però el departament de recursos humans és exigent i vol un llistat de les empr
 */;
 
 
-
-
-SELECT
+SELECT  c.company_name AS empresa,
+        qo.operacions AS num_transaccions,
+CASE
+    WHEN qo.operacions > 400 THEN 'Te MES de 400 transaccions'
+    ELSE 'Te MENYS de 400 transaccions'
+END AS tipus_client
+FROM company c
+JOIN (
+    SELECT  COUNT (t.id) AS operacions,
+            t.company_id
+    FROM transaction t
+    WHERE declined = 0
+    GROUP BY t.company_id
+) AS qo
+ON c.id = qo.company_id
+ORDER BY num_transaccions DESC
+;
