@@ -60,7 +60,7 @@ WHERE t.declined = 0
 
 -- Des de quants països es generen les vendes.
 
-SELECT COUNT (DISTINCT c.country)
+SELECT COUNT(DISTINCT c.country)
 FROM transaction t
 JOIN company c ON t.company_id = c.id
 WHERE t.declined = 0
@@ -102,7 +102,6 @@ WHERE t.company_id IN (
 
 -- Llista les empreses que han realitzat transaccions per un amount superior a la mitjana de totes les transaccions.
 
-
 SELECT c.company_name
 FROM company c
 WHERE c.id IN (
@@ -140,7 +139,7 @@ Mostra la data de cada transacció juntament amb el total de les vendes.
 */;
 
 SELECT  DATE (t.timestamp) AS data,
-        SUM (t.amount) vendes_diaries
+        SUM(t.amount) vendes_diaries
 FROM transaction t
 GROUP BY DATE (t.timestamp)
 ORDER BY vendes_diaries DESC
@@ -242,7 +241,7 @@ CASE
 END AS tipus_client
 FROM company c
 JOIN (
-    SELECT  COUNT (t.id) AS operacions,
+    SELECT  COUNT(t.id) AS operacions,
             t.company_id
     FROM transaction t
     WHERE declined = 0
@@ -256,9 +255,9 @@ ORDER BY num_transaccions DESC
 -- Opció 2: Codi optimitzat sense subquery, més fàcilde llegir i entendre
 
 SELECT  c.company_name AS empresa,
-        COUNT (t.id) AS num_transaccions,
+        COUNT(t.id) AS num_transaccions,
 CASE
-    WHEN  COUNT (t.id) > 400 THEN 'Te MES de 400 transaccions'
+    WHEN  COUNT(t.id) > 400 THEN 'Te MES de 400 transaccions'
     ELSE 'Te MENYS de 400 transaccions'
 END AS tipus_client
 FROM company c
