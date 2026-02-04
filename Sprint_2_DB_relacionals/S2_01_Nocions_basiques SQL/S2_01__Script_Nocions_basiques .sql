@@ -277,7 +277,17 @@ Presenta el nom, telèfon, país, data i amount, d'aquelles empreses que van rea
  i en alguna d'aquestes dates: 29 d'abril del 2015, 20 de juliol del 2018 i 13 de març del 2024. Ordena els resultats de major a menor quantitat.
 */
 
-
+SELECT  c.company_name AS nom,
+        c.phone AS telefon,
+        c.country AS pais,
+        DATE (t.timestamp) AS data,
+        t.amount AS import
+FROM transaction t
+JOIN company c ON t.company_id = c.id
+WHERE (t.amount BETWEEN 350 AND 400)
+AND DATE (t.timestamp) IN ('2015-04-29', '2018-07-20', '2024-03-13')
+ORDER BY import DESC
+;
 
 
 /*
@@ -286,5 +296,8 @@ Exercici 2
 Necessitem optimitzar l'assignació dels recursos i dependrà de la capacitat operativa que es requereixi, 
 per la qual cosa et demanen la informació sobre la quantitat de transaccions que realitzen les empreses, 
 però el departament de recursos humans és exigent i vol un llistat de les empreses on especifiquis si tenen més de 400 transaccions o menys.
+*/;
 
-*/
+
+
+SELECT
