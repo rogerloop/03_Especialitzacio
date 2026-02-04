@@ -300,4 +300,5 @@ però el departament de recursos humans és exigent i vol un llistat de les empr
 
 
 
+
 SELECT
