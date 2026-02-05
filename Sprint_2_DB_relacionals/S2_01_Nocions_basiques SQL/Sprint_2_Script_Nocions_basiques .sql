@@ -69,7 +69,7 @@ WHERE t.declined = 0
 -- Identifica la companyia amb la mitjana més gran de vendes.
 
 SELECT  c.company_name,
-        AVG (t.amount) AS mitjana_vendes
+        ROUND(AVG (t.amount),2) AS mitjana_vendes
 FROM transaction t
 JOIN company c ON t.company_id = c.id
 WHERE t.declined = 0
@@ -112,6 +112,7 @@ WHERE c.id IN (
     AND t.amount > (
 			SELECT AVG (t.amount)
 			FROM transaction t
+            WHERE t.declined = 0
     )
 )
 ;
