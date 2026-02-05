@@ -159,7 +159,7 @@ Presenta els resultats ordenats de major a menor mitjà.
 */;
 
 SELECT  c.country AS pais,
-        AVG (t.amount) AS mitjana_vendes
+		ROUND (AVG (t.amount), 2) AS mitjana_vendes
 FROM transaction t
 JOIN company c ON t.company_id = c.id
 WHERE t.declined = 0
