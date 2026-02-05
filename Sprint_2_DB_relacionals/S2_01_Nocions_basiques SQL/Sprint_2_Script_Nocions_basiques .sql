@@ -96,7 +96,8 @@ FROM transaction t
 WHERE t.company_id IN (
     SELECT c.id
     FROM company c
-    WHERE country = 'Germany'
+    WHERE t.declined = 0
+    AND country = 'Germany'
 )
 ;
 
@@ -107,9 +108,10 @@ FROM company c
 WHERE c.id IN (
     SELECT DISTINCT t.company_id
     FROM transaction t
-    WHERE t.amount > (
-        SELECT AVG (t.amount)
-        FROM transaction t
+    WHERE t.declined = 0
+    AND t.amount > (
+			SELECT AVG (t.amount)
+			FROM transaction t
     )
 )
 ;
@@ -141,6 +143,7 @@ Mostra la data de cada transacció juntament amb el total de les vendes.
 SELECT  DATE (t.timestamp) AS data,
         SUM(t.amount) vendes_diaries
 FROM transaction t
+WHERE t.declined = 0
 GROUP BY DATE (t.timestamp)
 ORDER BY vendes_diaries DESC
 LIMIT 5
@@ -158,6 +161,7 @@ SELECT  c.country AS pais,
         AVG (t.amount) AS mitjana_vendes
 FROM transaction t
 JOIN company c ON t.company_id = c.id
+WHERE t.declined = 0
 GROUP BY c.country
 ORDER BY mitjana_vendes DESC
 ;
@@ -178,7 +182,8 @@ Mostra el llistat aplicant solament subconsultes.
 SELECT *
 FROM company c
 JOIN transaction t ON c.id = t.company_id
-WHERE c.country = (
+WHERE	t.declined = 0
+AND	c.country = (
     SELECT c.country
     FROM company c
     WHERE c.company_name = 'Non Institute'
@@ -189,7 +194,8 @@ WHERE c.country = (
 
 SELECT *
 FROM transaction t
-WHERE t.company_id IN (
+WHERE t.declined = 0
+AND	t.company_id IN (
     SELECT c.id
     FROM company c
     WHERE c.country = (
@@ -219,6 +225,7 @@ FROM transaction t
 JOIN company c ON t.company_id = c.id
 WHERE (t.amount BETWEEN 350 AND 400)
 AND DATE (t.timestamp) IN ('2015-04-29', '2018-07-20', '2024-03-13')
+AND t.declined = 0
 ORDER BY import DESC
 ;
 
