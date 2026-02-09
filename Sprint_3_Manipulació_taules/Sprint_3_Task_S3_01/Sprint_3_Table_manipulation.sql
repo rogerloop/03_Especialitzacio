@@ -48,24 +48,17 @@ LIMIT 10;
 
 -- Drop the column and rename
 ALTER TABLE credit_card
-DROP COLUMN expiring_date,
-CHANGE 
+DROP COLUMN expiring_date
 ;
+ALTER TABLE credit_card
+RENAME COLUMN expiring_date_temp TO expiring_date
+;
+
 ALTER TABLE transaction
 ADD CONSTRAINT FK_transaction_creditcard
 FOREIGN KEY (credit_card_id) REFERENCES credit_card(id)
 ;
 
-SELECT STR_TO_DATE('expiring_date', '%m %d %Y')
-FROM credit_card
-;
-
-ALTER TABLE credit_card
-MODIFY expiring_date DATE;
-
-
-ALTER TABLE transaction
-DROP FOREIGN KEY fk_transaction_creditcard;
 
 
 
