@@ -17,23 +17,26 @@ CREATE TABLE IF NOT EXISTS credit_card (
 	id VARCHAR(15) PRIMARY KEY,
     iban VARCHAR(50),
     pan VARCHAR(30),
-    pin SMALLINT,
-    cvv SMALLINT,
+    pin CHAR(4),
+    cvv CHAR(4),  -- reservo 4 bytes para futuro uso con AMEX 
     expiring_date VARCHAR(10)
 );
 
 ALTER TABLE transaction
-ADD FOREIGN KEY (credit_card_id) REFERENCES credit_card(id);
+ADD CONSTRAINT fk_transaction_creditcard
+FOREIGN KEY (credit_card_id) REFERENCES credit_card(id)
+;
+
+SELECT STR_TO_DATE('expiring_date', '%m %d %Y')
+FROM credit_card
+;
+
+ALTER TABLE credit_card
+MODIFY expiring_date DATE;
 
 
-SHOW CREATE TABLE transaction;
-SHOW CREATE TABLE credit_card;
-
-
-
-
-
-
+ALTER TABLE transaction
+DROP FOREIGN KEY fk_transaction_creditcard;
 
 
 
