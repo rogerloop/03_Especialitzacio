@@ -14,7 +14,7 @@ Recorda mostrar el diagrama i realitzar una breu descripció d’aquest.
 */;
 
 CREATE TABLE IF NOT EXISTS credit_card (
-	id CHAR(15) PRIMARY KEY,
+	id VARCHAR(15) PRIMARY KEY,
     iban VARCHAR(50),
     pan VARCHAR(30),
     pin SMALLINT,
@@ -26,7 +26,8 @@ ALTER TABLE transaction
 ADD FOREIGN KEY (credit_card_id) REFERENCES credit_card(id);
 
 
-
+SHOW CREATE TABLE transaction;
+SHOW CREATE TABLE credit_card;
 
 
 
