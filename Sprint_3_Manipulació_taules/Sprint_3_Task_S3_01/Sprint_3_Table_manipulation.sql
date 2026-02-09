@@ -22,8 +22,37 @@ CREATE TABLE IF NOT EXISTS credit_card (
     expiring_date VARCHAR(10)
 );
 
+
+-- 2 - Fix problem with 'expiring_date' column
+-- New Column creation
+-- Copy values to new column formating to DATE. alter
+-- I use WHERE with 'expiring_date' but to avoid 
+-- MyWorkBench security protection I deactivated and reactivated Safe Updates
+
+ALTER TABLE credit_card
+ADD expiring_date_temp DATE
+;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE credit_card
+SET expiring_date_temp = STR_TO_DATE(expiring_date, '%m/%d/%Y')
+WHERE expiring_date IS NOT NULL;
+
+SET SQL_SAFE_UPDATES = 1;
+
+-- Data checking in order to erase original column and rename the new one
+SELECT expiring_date, expiring_date_temp
+FROM credit_card
+LIMIT 10;
+
+-- Drop the column and rename
+ALTER TABLE credit_card
+DROP COLUMN expiring_date,
+CHANGE 
+;
 ALTER TABLE transaction
-ADD CONSTRAINT fk_transaction_creditcard
+ADD CONSTRAINT FK_transaction_creditcard
 FOREIGN KEY (credit_card_id) REFERENCES credit_card(id)
 ;
 
