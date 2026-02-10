@@ -164,3 +164,5 @@ JOIN transaction t ON c.id = t.company_id
 GROUP BY c.company_name, c.phone, c.country
 ORDER BY average_purchase DESC
 ;
+
+
