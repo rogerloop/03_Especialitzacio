@@ -93,11 +93,11 @@ declined	0
 ALTER TABLE user
 MODIFY COLUMN id INT
 ;
+
 ALTER TABLE transaction
 ADD CONSTRAINT FK_transaction_user
 FOREIGN KEY (user_id) REFERENCES user(id)
 ;
-
 
 -- I want run the query at once, inserting the values on the PK if they are not there
 -- I will USE START TRANSACTION - COMMIT that it looks for me very interesting way
