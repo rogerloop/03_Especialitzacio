@@ -87,11 +87,17 @@ declined	0
 */;
 
 -- For this exercise I detect that user(id) and transaction(user_id) have a different tupe
--- I'm going to fix this Converting user(id) to INT that for me it make sense
+-- I'm going to fix this Converting user(id) to INT and create
+-- the relation between user and transaction that for me it make sense now
 
 ALTER TABLE user
 MODIFY COLUMN id INT
 ;
+ALTER TABLE transaction
+ADD CONSTRAINT FK_transaction_user
+FOREIGN KEY (user_id) REFERENCES user(id)
+;
+
 
 -- I want run the query at once, inserting the values on the PK if they are not there
 -- I will USE START TRANSACTION - COMMIT that it looks for me very interesting way
@@ -165,4 +171,13 @@ GROUP BY c.company_name, c.phone, c.country
 ORDER BY average_purchase DESC
 ;
 
+/*
+Exercici 3
+Filtra la vista VistaMarketing per a mostrar només les companyies que 
+tenen el seu país de residència en "Germany"
+*/
 
+SELECT *
+FROM vistamarketing
+WHERE country = 'Germany'
+;
