@@ -201,6 +201,10 @@ per a obtenir el següent diagrama:
 
 
 
+
+
+
+
 /*
 Exercici 2
 L'empresa també us demana crear una vista anomenada "InformeTecnico" que contingui la següent informació:
@@ -219,13 +223,13 @@ SELECT	t.id AS transactionID,
 		cc.iban,
         DATE (t.timestamp) AS transaction_date,
 		t.amount, 
-		u.name,
-        u.surname,
+		u.name AS user_name,
+        u.surname AS user_surname,
         STR_TO_DATE(u.birth_date, '%b %e, %Y') AS birthday,
-        u.city,
-        u.country,
+        u.city AS user_city,
+        u.country AS user_country,
         c.company_name,
-        c.country
+        c.country AS company_country
 FROM transaction t
 JOIN user u ON t.user_id = u.id
 JOIN company c ON t.company_id = c.id
