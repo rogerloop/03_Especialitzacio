@@ -181,3 +181,54 @@ SELECT *
 FROM vistamarketing
 WHERE country = 'Germany'
 ;
+
+
+/*
+Nivell 3
+Exercici 1
+La setmana vinent tindràs una nova reunió amb els gerents de màrqueting. 
+Un company del teu equip va realitzar modificacions en la base de dades, 
+però no recorda com les va realitzar. 
+Et demana que l'ajudis a deixar els comandos executats 
+per a obtenir el següent diagrama:
+*/
+
+
+
+
+
+
+
+
+
+/*
+Exercici 2
+L'empresa també us demana crear una vista anomenada "InformeTecnico" que contingui la següent informació:
+
+ID de la transacció
+Nom de l'usuari/ària
+Cognom de l'usuari/ària
+IBAN de la targeta de crèdit usada.
+Nom de la companyia de la transacció realitzada.
+Assegureu-vos d'incloure informació rellevant de les taules que coneixereu i utilitzeu àlies per canviar de nom columnes segons calgui.
+Mostra els resultats de la vista, ordena els resultats de forma descendent en funció de la variable ID de transacció.
+*/
+
+CREATE VIEW informetecnico AS
+SELECT	t.id AS transactionID,
+		cc.iban,
+        DATE (t.timestamp) AS transaction_date,
+		t.amount, 
+		u.name,
+        u.surname,
+        STR_TO_DATE(u.birth_date, '%b %e, %Y') AS birthday,
+        u.city,
+        u.country,
+        c.company_name,
+        c.country
+FROM transaction t
+JOIN user u ON t.user_id = u.id
+JOIN company c ON t.company_id = c.id
+JOIN credit_card cc ON t.credit_card_id = cc.id
+ORDER BY transactionID DESC
+;
