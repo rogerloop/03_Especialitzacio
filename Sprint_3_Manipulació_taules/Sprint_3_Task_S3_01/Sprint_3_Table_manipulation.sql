@@ -144,7 +144,7 @@ Presenta la vista creada, ordenant les dades de major a menor mitjana de compra.
 -- To create a view, first we create a QUERY and then we use CREATE VIEW 
 -- and we ATTACHE THE QUERY to convert to permanent view.
 
-CREATE VIEW VistaMarketing AS
+CREATE VIEW vistamarketing AS
 SELECT	c.company_name,
 		c.phone,
         c.country,
@@ -218,5 +218,5 @@ FROM `transaction` t
 JOIN user u ON t.user_id = u.id
 JOIN company c ON t.company_id = c.id
 JOIN credit_card cc ON t.credit_card_id = cc.id
-ORDER BY transactionID DESC
+ORDER BY t.id DESC
 ;

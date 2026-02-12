@@ -29,6 +29,7 @@ Step 3: Change column type 'id' from table 'data_user' to INT
 ALTER TABLE data_user
 MODIFY COLUMN id INT
 ;
+
 /*
 Step 4: Change column name 'email' from table 'data_user' to ‘personal_email’
 */
@@ -36,15 +37,27 @@ ALTER TABLE data_user
 RENAME COLUMN email TO personal_email
 ;
 
-/*Step 5: Create de FOREIGN KEY constraint between 
+/*Step 5: Add row in the table 'data_user' with 'id' (9999) and the rest of the fields in blank. 
+Necessary step to be able to create the FK constraint
+*/
+INSERT INTO data_user (id)
+VALUES (9999)
+ON DUPLICATE KEY UPDATE id = id
+;
+
+/*Step 6: Create de FOREIGN KEY constraint between 
 table ‘transaction’ and ‘data_user’
 */
-
 ALTER TABLE transaction
 ADD CONSTRAINT FK_transaction_datauser
 FOREIGN KEY (user_id) REFERENCES data_user(id)
 ;
 
-INSERT INTO `user` (id)
-VALUES (9999)
-ON DUPLICATE KEY UPDATE id = id;
+/*Step 7: Delete the 'website' column from the 'company' table
+*/
+ALTER TABLE company
+DROP COLUMN website
+;
+
+
+
