@@ -54,7 +54,8 @@ ALTER TABLE credit_card
 RENAME COLUMN expiring_date_temp TO expiring_date
 ;
 
-ALTER TABLE transaction
+-- Construct the relationship transaction-credit-card
+ALTER TABLE `transaction`
 ADD CONSTRAINT FK_transaction_creditcard
 FOREIGN KEY (credit_card_id) REFERENCES credit_card(id)
 ;
@@ -86,19 +87,6 @@ amount	111.11
 declined	0
 */;
 
--- For this exercise I detect that user(id) and transaction(user_id) have a different tupe
--- I'm going to fix this Converting user(id) to INT and create
--- the relation between user and transaction that for me it make sense now
-
-ALTER TABLE user
-MODIFY COLUMN id INT
-;
-
-ALTER TABLE transaction
-ADD CONSTRAINT FK_transaction_user
-FOREIGN KEY (user_id) REFERENCES user(id)
-;
-
 -- I want run the query at once, inserting the values on the PK if they are not there
 -- I will USE START TRANSACTION - COMMIT that it looks for me very interesting way
 
@@ -110,10 +98,6 @@ ON DUPLICATE KEY UPDATE id = id;
 
 INSERT INTO company (id)
 VALUES ('b-9999')
-ON DUPLICATE KEY UPDATE id = id;
-
-INSERT INTO `user` (id)
-VALUES (9999)
 ON DUPLICATE KEY UPDATE id = id;
 
 INSERT INTO `transaction` (
@@ -141,7 +125,7 @@ Elimina de la taula transaction el registre
 amb ID 000447FE-B650-4DCF-85DE-C7ED0EE1CAAD de la base de dades.	
 */;
 
-DELETE FROM transaction
+DELETE FROM `transaction`
 WHERE id = '000447FE-B650-4DCF-85DE-C7ED0EE1CAAD'
 ;
 
@@ -166,9 +150,9 @@ SELECT	c.company_name,
         c.country,
         ROUND (AVG (t.amount),2) AS average_purchase
 FROM company c
-JOIN transaction t ON c.id = t.company_id
-GROUP BY c.company_name, c.phone, c.country
-ORDER BY average_purchase DESC
+JOIN `transaction` t ON c.id = t.company_id
+GROUP BY c.id, c.company_name, c.phone, c.country
+ORDER BY AVG (t.amount) DESC
 ;
 
 /*
@@ -230,7 +214,7 @@ SELECT	t.id AS transactionID,
         u.country AS user_country,
         c.company_name,
         c.country AS company_country
-FROM transaction t
+FROM `transaction` t
 JOIN user u ON t.user_id = u.id
 JOIN company c ON t.company_id = c.id
 JOIN credit_card cc ON t.credit_card_id = cc.id
