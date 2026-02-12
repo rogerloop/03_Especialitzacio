@@ -59,5 +59,46 @@ ALTER TABLE company
 DROP COLUMN website
 ;
 
+/*
+Step 8: Change the length of the 'credit_card_id' column of the 'transaction' table
+*/
+ALTER TABLE `transaction`
+MODIFY COLUMN credit_card_id VARCHAR(20)
+;
+
+/*
+Step 9:  On the table 'credit_card' —> increase column length 'id'
+*/
+ALTER TABLE credit_card
+MODIFY COLUMN id VARCHAR(20)
+;
+
+/*
+Step 10:  On the table 'credit_card' —> change ‘pin’ data type
+*/
+ALTER TABLE credit_card
+MODIFY COLUMN pin VARCHAR(4)
+;
+
+/*
+Step 11:  On the table 'credit_card' —> change ‘cvv’ data type
+*/
+ALTER TABLE credit_card
+MODIFY COLUMN cvv INT
+;
+
+/*
+Step 12:  On the table 'credit_card' —> change ‘expiring_date’ data type
+*/
+ALTER TABLE credit_card
+MODIFY COLUMN expiring_date VARCHAR(20)
+;
+
+/*
+Step 13:  On the table 'credit_card' —> create new column ‘fecha_actual’
+*/
+ALTER TABLE credit_card
+ADD fecha_actual DATE
+;
 
 
