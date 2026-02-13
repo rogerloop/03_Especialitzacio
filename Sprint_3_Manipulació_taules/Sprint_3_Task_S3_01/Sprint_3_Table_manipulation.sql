@@ -216,7 +216,7 @@ ON DUPLICATE KEY UPDATE id = id
 /*Step 6: Create de FOREIGN KEY constraint between 
 table ‘transaction’ and ‘data_user’
 */
-ALTER TABLE transaction
+ALTER TABLE `transaction`
 ADD CONSTRAINT FK_transaction_datauser
 FOREIGN KEY (user_id) REFERENCES data_user(id)
 ;
