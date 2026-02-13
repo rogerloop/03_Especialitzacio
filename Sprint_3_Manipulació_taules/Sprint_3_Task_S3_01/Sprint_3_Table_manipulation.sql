@@ -1,7 +1,3 @@
-
-
-
-
 /*
 Level 1
 - Exercise 1
@@ -21,7 +17,6 @@ CREATE TABLE IF NOT EXISTS credit_card (
     cvv CHAR(4),  -- reservo 4 bytes para futuro uso con AMEX 
     expiring_date VARCHAR(10)
 );
-
 
 -- Fix problem with 'expiring_date' column
 -- New Column creation
@@ -172,22 +167,147 @@ Nivell 3
 Exercici 1
 La setmana vinent tindràs una nova reunió amb els gerents de màrqueting. 
 Un company del teu equip va realitzar modificacions en la base de dades, 
-però no recorda com les va realitzar. 
-Et demana que l'ajudis a deixar els comandos executats 
-per a obtenir el següent diagrama:
+però no recorda com les va realitzar.
+ Et demana que l'ajudis a deixar els comandos executats per a obtenir el següent diagrama:
+
+ Recordatori
+
+En aquesta activitat, és necessari que descriguis el "pas a pas" de les tasques realitzades. 
+És important realitzar descripcions senzilles, simples i fàcils de comprendre. 
+Per a realitzar aquesta activitat hauràs de treballar amb els arxius denominats
+ "estructura_dades_user" i "dades_introduir_user"
+
+Recorda continuar treballant sobre el model i les taules amb les quals ja has treballat fins ara.
 */
 
+/*
+Step 1: The first step is all available on the PDF
+*/
 
+/*
+Step 2: Rename table 'user' —> 'data_user'
+*/
+ALTER TABLE `user`
+RENAME TO data_user
+;
 
+/*
+Step 3: Change column type 'id' from table 'data_user' to INT
+*/
+ALTER TABLE data_user
+MODIFY COLUMN id INT
+;
 
+/*
+Step 4: Change column name 'email' from table 'data_user' to ‘personal_email’
+*/
+ALTER TABLE data_user
+RENAME COLUMN email TO personal_email
+;
 
+/*Step 5: Add row in the table 'data_user' with 'id' (9999) and the rest of the fields in blank. 
+Necessary step to be able to create the FK constraint
+*/
+INSERT INTO data_user (id)
+VALUES (9999)
+ON DUPLICATE KEY UPDATE id = id
+;
 
+/*Step 6: Create de FOREIGN KEY constraint between 
+table ‘transaction’ and ‘data_user’
+*/
+ALTER TABLE transaction
+ADD CONSTRAINT FK_transaction_datauser
+FOREIGN KEY (user_id) REFERENCES data_user(id)
+;
 
+/*Step 7: Delete the 'website' column from the 'company' table
+*/
+ALTER TABLE company
+DROP COLUMN website
+;
 
+/*
+Step 8: Change the length of the 'credit_card_id' column of the 'transaction' table
+*/
+ALTER TABLE `transaction`
+MODIFY COLUMN credit_card_id VARCHAR(20)
+;
 
+/*
+Step 9:  On the table 'credit_card' —> increase column length 'id'
+*/
+ALTER TABLE credit_card
+MODIFY COLUMN id VARCHAR(20)
+;
 
+/*
+Step 10:  On the table 'credit_card' —> change ‘pin’ data type
+*/
+ALTER TABLE credit_card
+MODIFY COLUMN pin VARCHAR(4)
+;
 
+/*
+Step 11:  On the table 'credit_card' —> change ‘cvv’ data type
+*/
+ALTER TABLE credit_card
+MODIFY COLUMN cvv INT
+;
 
+/*
+Step 12:  On the table 'credit_card' —> change ‘expiring_date’ data type
+*/
+ALTER TABLE credit_card
+MODIFY COLUMN expiring_date VARCHAR(20)
+;
+
+/*
+Step 13:  On the table 'credit_card' —> create new column ‘fecha_actual’
+*/
+ALTER TABLE credit_card
+ADD fecha_actual DATE
+;
+
+/*
+EXTRA - OFF TOPIC
+
+As a final note of exercise 1, I want to explain that I have made the DDL (Data Definition Language - structure modification) 
+and DML (Data Manipulation Language - enter, delete data) of this exercise step by step, because the statement specified it.
+But it would be much more efficient, grouping the DDL by tables with an ALTER per table and the DMLs also separately.
+We cannot use TCL (Transaction Control Language) START TRANSACTION, COMMIT in this case since DDL makes COMMIT.
+Below is an example of how the exercise would look focusing on efficiency:
+*/
+-- ----------------------------------------------------
+-- USER
+ALTER TABLE `user`
+RENAME TO data_user,
+MODIFY COLUMN id INT,
+RENAME COLUMN email TO personal_email
+;
+INSERT INTO data_user (id)
+VALUES (9999)
+ON DUPLICATE KEY UPDATE id = id
+;
+-- TRANSACTION
+ALTER TABLE `transaction`
+MODIFY COLUMN credit_card_id VARCHAR(20),
+ADD CONSTRAINT FK_transaction_datauser
+FOREIGN KEY (user_id) REFERENCES data_user(id)
+;
+-- COMPANY
+ALTER TABLE company
+DROP COLUMN website
+;
+-- CREDIT_CARD
+ALTER TABLE credit_card
+MODIFY COLUMN id VARCHAR(20),
+MODIFY COLUMN pin VARCHAR(4),
+MODIFY COLUMN cvv INT,
+MODIFY COLUMN expiring_date VARCHAR(20),
+ADD COLUMN fecha_actual DATE
+;
+-- -------------------------------------------------------
 
 /*
 Exercici 2
@@ -205,17 +325,19 @@ Mostra els resultats de la vista, ordena els resultats de forma descendent en fu
 CREATE VIEW informetecnico AS
 SELECT	t.id AS transactionID,
 		cc.iban,
-        DATE (t.timestamp) AS transaction_date,
+        DATE(t.timestamp) AS transaction_date,
 		t.amount, 
-		u.name AS user_name,
-        u.surname AS user_surname,
-        STR_TO_DATE(u.birth_date, '%b %e, %Y') AS birthday,
-        u.city AS user_city,
-        u.country AS user_country,
+		du.name AS user_name,
+        du.surname AS user_surname,
+        STR_TO_DATE(du.birth_date, '%b %e, %Y') AS birthday,
+        du.city AS user_city,
+        du.country AS user_country,
         c.company_name,
-        c.country AS company_country
+        c.country AS company_country,
+        cc.expiring_date AS card_expiration_date,
+        t.declined AS operation_declined      
 FROM `transaction` t
-JOIN user u ON t.user_id = u.id
+JOIN data_user du ON t.user_id = du.id
 JOIN company c ON t.company_id = c.id
 JOIN credit_card cc ON t.credit_card_id = cc.id
 ORDER BY t.id DESC
