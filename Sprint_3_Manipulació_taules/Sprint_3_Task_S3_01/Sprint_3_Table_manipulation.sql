@@ -22,19 +22,17 @@ CREATE TABLE IF NOT EXISTS credit_card (
 -- New Column creation
 -- Copy values to new column formating to DATE. alter
 -- I use WHERE with 'expiring_date' but to avoid 
--- MyWorkBench security protection I deactivated and reactivated Safe Updates
+-- MyWorkBench we use de clause LIMIT 
 
 ALTER TABLE credit_card
 ADD expiring_date_temp DATE
 ;
 
-SET SQL_SAFE_UPDATES = 0;
-
 UPDATE credit_card
 SET expiring_date_temp = STR_TO_DATE(expiring_date, '%m/%d/%Y')
-WHERE expiring_date IS NOT NULL;
-
-SET SQL_SAFE_UPDATES = 1;
+WHERE expiring_date IS NOT NULL
+LIMIT 100000
+;
 
 -- Data checking in order to erase original column and rename the new one
 SELECT expiring_date, expiring_date_temp
@@ -43,7 +41,7 @@ LIMIT 10;
 
 -- Drop the column and rename
 ALTER TABLE credit_card
-DROP COLUMN expiring_date
+DROP COLUMN expiring_date_temp
 ;
 ALTER TABLE credit_card
 RENAME COLUMN expiring_date_temp TO expiring_date
@@ -137,9 +135,10 @@ Presenta la vista creada, ordenant les dades de major a menor mitjana de compra.
 */
 
 -- To create a view, first we create a QUERY and then we use CREATE VIEW 
--- and we ATTACHE THE QUERY to convert to permanent view.
+-- and we ATTACHE THE QUERY to convert to permanent view. We use CREATE OR REPLACE
+-- just in case the view already exists
 
-CREATE VIEW vistamarketing AS
+CREATE OR REPLACE VIEW vistamarketing AS
 SELECT	c.company_name,
 		c.phone,
         c.country,
@@ -148,6 +147,10 @@ FROM company c
 JOIN `transaction` t ON c.id = t.company_id
 GROUP BY c.id, c.company_name, c.phone, c.country
 ORDER BY AVG (t.amount) DESC
+;
+
+SELECT *
+FROM transactions.vistamarketing
 ;
 
 /*
@@ -322,7 +325,7 @@ Assegureu-vos d'incloure informació rellevant de les taules que coneixereu i ut
 Mostra els resultats de la vista, ordena els resultats de forma descendent en funció de la variable ID de transacció.
 */
 
-CREATE VIEW informetecnico AS
+CREATE OR REPLACE VIEW informetecnico AS
 SELECT	t.id AS transactionID,
 		cc.iban,
         DATE(t.timestamp) AS transaction_date,
@@ -340,5 +343,9 @@ FROM `transaction` t
 JOIN data_user du ON t.user_id = du.id
 JOIN company c ON t.company_id = c.id
 JOIN credit_card cc ON t.credit_card_id = cc.id
-ORDER BY t.id DESC
+;
+
+SELECT *
+FROM informetecnico i
+ORDER BY i.transactionID DESC
 ;
