@@ -12,7 +12,7 @@ CHARACTER SET utf8mb4;	-- Character Definition for Enhanced Compatibility with â
 USE starmarketplace
 ;
 
--- Table creation 
+-- TABLE CREATION
 
 -- Creation table 'products'
 CREATE TABLE IF NOT EXISTS products (
@@ -47,28 +47,15 @@ CREATE TABLE IF NOT EXISTS credit_cards (
     expiring_date VARCHAR(20)
 );
 
--- Creation table 'european_users'
-CREATE TABLE IF NOT EXISTS european_users (
+-- Creation table 'users'
+CREATE TABLE IF NOT EXISTS users (
 	id INT,
     `name`VARCHAR(100),
     surname VARCHAR(100),
     phone VARCHAR(150),
     email VARCHAR(150),
     birth_date VARCHAR(100),
-    country VARCHAR(150),
-    city VARCHAR(150),
-    postal_code VARCHAR(100),
-    address VARCHAR(255)
-);
-
--- Creation table 'american_users'
-CREATE TABLE IF NOT EXISTS american_users (
-	id INT,
-    `name`VARCHAR(100),
-    surname VARCHAR(100),
-    phone VARCHAR(150),
-    email VARCHAR(150),
-    birth_date VARCHAR(100),
+    continent VARCHAR(150),
     country VARCHAR(150),
     city VARCHAR(150),
     postal_code VARCHAR(100),
@@ -82,38 +69,23 @@ CREATE TABLE IF NOT EXISTS transactions (
     business_id VARCHAR(20),
     `timestamp`VARCHAR(30),
     amount VARCHAR(10),
-    declined TINYINT(1),
-    
+    declined TINYINT,
+    product_ids VARCHAR(255),
+    user_id INT,
+    lat VARCHAR(50),
+    longitude VARCHAR(50)
+);
 
 
+-- DATA IMPORT
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- Comando para evitar restricciones de MySQL en MacOS
+-- Command to avoid MySQL restrictions on MacOS
 SET GLOBAL local_infile = 1;
 
--- Importar datos de CSV a products
+-- Checck local_infile
+SHOW VARIABLES LIKE 'local_infile';
+
+-- Import CSV data to 'products'
 LOAD DATA LOCAL
 INFILE '/Users/rogerdefez/Documents/Cursos i Llibres/BootCamp IT Academy/03_Especialitzacio/Sprint_4_Modelat_SQL/Dades_originals_S4/products.csv'
 INTO TABLE products
@@ -122,8 +94,55 @@ ENCLOSED BY '"'
 IGNORE 1 ROWS
 ;
 
+-- Import CSV data to 'companies'
+LOAD DATA LOCAL
+INFILE '/Users/rogerdefez/Documents/Cursos i Llibres/BootCamp IT Academy/03_Especialitzacio/Sprint_4_Modelat_SQL/Dades_originals_S4/companies.csv'
+INTO TABLE companies
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+IGNORE 1 ROWS
+;
+
+-- Import CSV data to 'credit_cards'
+LOAD DATA LOCAL
+INFILE '/Users/rogerdefez/Documents/Cursos i Llibres/BootCamp IT Academy/03_Especialitzacio/Sprint_4_Modelat_SQL/Dades_originals_S4/credit_cards.csv'
+INTO TABLE credit_cards
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+IGNORE 1 ROWS
+;
+
+-- Import 'european_users' CSV data to 'users'  
+LOAD DATA LOCAL
+INFILE '/Users/rogerdefez/Documents/Cursos i Llibres/BootCamp IT Academy/03_Especialitzacio/Sprint_4_Modelat_SQL/Dades_originals_S4/european_users.csv'
+INTO TABLE users
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+IGNORE 1 ROWS
+(id, `name`, surname, phone, email, birth_date, country, city, postal_code, address) 
+SET continent = "Europe"
+;
+
+-- Import 'american_users' CSV data to 'users' 
+LOAD DATA LOCAL
+INFILE '/Users/rogerdefez/Documents/Cursos i Llibres/BootCamp IT Academy/03_Especialitzacio/Sprint_4_Modelat_SQL/Dades_originals_S4/american_users.csv'
+INTO TABLE users
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+IGNORE 1 ROWS
+(id, `name`, surname, phone, email, birth_date, country, city, postal_code, address) 
+SET continent = "America"
+;
+
+-- Import CSV data to 'transactions'
+LOAD DATA LOCAL
+INFILE '/Users/rogerdefez/Documents/Cursos i Llibres/BootCamp IT Academy/03_Especialitzacio/Sprint_4_Modelat_SQL/Dades_originals_S4/transactions.csv'
+INTO TABLE transactions
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+IGNORE 1 ROWS
+;
 
 
-SHOW VARIABLES LIKE 'local_infile';
 
 
