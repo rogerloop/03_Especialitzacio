@@ -15,7 +15,7 @@ USE starmarketplace
 -- Table creation 
 
 -- Creation table 'products'
-CREATE TABLE  products (
+CREATE TABLE IF NOT EXISTS products (
 	id INT,
     product_name VARCHAR(255),
     price VARCHAR(255),
@@ -25,7 +25,7 @@ CREATE TABLE  products (
 );
 
 -- Creation table 'companies'
-CREATE TABLE companies (
+CREATE TABLE IF NOT EXISTS companies (
 	company_id VARCHAR(15),
     company_name VARCHAR(255),
     phone VARCHAR(150),
@@ -35,8 +35,8 @@ CREATE TABLE companies (
 );
 
 -- Creation table 'credit_cards'
-CREATE TABLE credit_cards (
-	id VARCHAR(15),
+CREATE TABLE IF NOT EXISTS credit_cards (
+	id VARCHAR(20),
     user_id int,
     iban VARCHAR(50),
     pan VARCHAR(30),
@@ -48,7 +48,7 @@ CREATE TABLE credit_cards (
 );
 
 -- Creation table 'european_users'
-CREATE TABLE european_users (
+CREATE TABLE IF NOT EXISTS european_users (
 	id INT,
     `name`VARCHAR(100),
     surname VARCHAR(100),
@@ -62,7 +62,7 @@ CREATE TABLE european_users (
 );
 
 -- Creation table 'american_users'
-CREATE TABLE american_users (
+CREATE TABLE IF NOT EXISTS american_users (
 	id INT,
     `name`VARCHAR(100),
     surname VARCHAR(100),
@@ -75,7 +75,15 @@ CREATE TABLE american_users (
     address VARCHAR(255)
 );
 
-
+-- Creation table 'transactions'
+CREATE TABLE IF NOT EXISTS transactions (
+	id VARCHAR(255),
+    card_id VARCHAR(20),
+    business_id VARCHAR(20),
+    `timestamp`VARCHAR(30),
+    amount VARCHAR(10),
+    declined TINYINT(1),
+    
 
 
 
