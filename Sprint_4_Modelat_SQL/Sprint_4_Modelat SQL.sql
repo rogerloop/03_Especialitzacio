@@ -24,6 +24,84 @@ CREATE TABLE  products (
     warehouse_id VARCHAR(50)
 );
 
+-- Creation table 'companies'
+CREATE TABLE companies (
+	company_id VARCHAR(15),
+    company_name VARCHAR(255),
+    phone VARCHAR(150),
+    email VARCHAR(150),
+    country VARCHAR(150),
+    website VARCHAR (255)
+);
+
+-- Creation table 'credit_cards'
+CREATE TABLE credit_cards (
+	id VARCHAR(15),
+    user_id int,
+    iban VARCHAR(50),
+    pan VARCHAR(30),
+    pin VARCHAR(4),
+    cvv INT,
+    track1 VARCHAR(255),
+	track2 VARCHAR(255),
+    expiring_date VARCHAR(20)
+);
+
+-- Creation table 'european_users'
+CREATE TABLE european_users (
+	id INT,
+    `name`VARCHAR(100),
+    surname VARCHAR(100),
+    phone VARCHAR(150),
+    email VARCHAR(150),
+    birth_date VARCHAR(100),
+    country VARCHAR(150),
+    city VARCHAR(150),
+    postal_code VARCHAR(100),
+    address VARCHAR(255)
+);
+
+-- Creation table 'american_users'
+CREATE TABLE american_users (
+	id INT,
+    `name`VARCHAR(100),
+    surname VARCHAR(100),
+    phone VARCHAR(150),
+    email VARCHAR(150),
+    birth_date VARCHAR(100),
+    country VARCHAR(150),
+    city VARCHAR(150),
+    postal_code VARCHAR(100),
+    address VARCHAR(255)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- Comando para evitar restricciones de MySQL en MacOS
 SET GLOBAL local_infile = 1;
 
