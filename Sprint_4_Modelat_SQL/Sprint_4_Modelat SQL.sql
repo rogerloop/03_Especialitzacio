@@ -181,7 +181,7 @@ WHERE id >= 1
 ALTER TABLE products
 MODIFY price DECIMAL(10, 2)
 ;
-ALTER TABLE ptroducts
+ALTER TABLE products
 MODIFY weight DECIMAL(5, 1)
 ;
 
