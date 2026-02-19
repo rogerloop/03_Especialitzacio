@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS products (
     product_name VARCHAR(255),
     price VARCHAR(255),
     colour VARCHAR(50),
-    wheight VARCHAR(50),
+    weight VARCHAR(50),
     warehouse_id VARCHAR(50)
 );
 
@@ -146,7 +146,44 @@ IGNORE 1 ROWS
 
 -- DATA CLEANING & DATA TRANSFORMATION
 
+SELECT COUNT(*) FROM tabla;
+SELECT DISTINCT campo FROM tabla;
+SELECT MIN(campo), MAX(campo) FROM tabla;
+SELECT * FROM tabla WHERE campo IS NULL;
 
+
+-- Cleaning & transforming 'products' table
+
+-- Pre-Analysis 
+
+SELECT COUNT(*) FROM products;
+SELECT DISTINCT product_name FROM products;			-- Result 70 rows meanning same product different colour
+SELECT product_name, count(id) FROM products
+GROUP BY product_name								-- There is 19 products same name but with variants 'colour, weight
+HAVING COUNT(ID) > 1;								
+SELECT * FROM products
+ORDER BY product_name;
+SELECT MIN(price), MAX(price) FROM products;
+SELECT * FROM products WHERE price IS NULL;
+SELECT MIN(weight), MAX(weight) FROM products;
+SELECT * FROM products WHERE weight IS NULL;
+SELECT price FROM products;
+
+-- Transformation
+ALTER TABLE products
+ADD PRIMARY KEY (id)
+;
+
+UPDATE products
+SET price = REPLACE(price, '$', '')
+WHERE id >= 1
+;
+ALTER TABLE products
+MODIFY price DECIMAL(10, 2)
+;
+ALTER TABLE ptroducts
+MODIFY weight DECIMAL(5, 1)
+;
 
 
 
