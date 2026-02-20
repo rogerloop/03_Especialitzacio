@@ -146,15 +146,14 @@ IGNORE 1 ROWS
 
 -- DATA CLEANING & DATA TRANSFORMATION
 
+-- Pre-Analysis steatment
+
 SELECT COUNT(*) FROM tabla;
 SELECT DISTINCT campo FROM tabla;
 SELECT MIN(campo), MAX(campo) FROM tabla;
 SELECT * FROM tabla WHERE campo IS NULL;
 
-
 -- Cleaning & transforming 'products' table
-
--- Pre-Analysis 
 
 SELECT COUNT(*) FROM products;
 SELECT DISTINCT product_name FROM products;			-- Result 70 rows meanning same product different colour
@@ -184,6 +183,19 @@ MODIFY price DECIMAL(10, 2)
 ALTER TABLE products
 MODIFY weight DECIMAL(5, 1)
 ;
+
+
+-- Cleaning & transforming 'companies' table
+
+SELECT COUNT(*) FROM companies;								-- 100 rows
+SELECT DISTINCT company_id FROM companies;					-- 100 diferent id (this is OK) No duplicate
+SELECT DISTINCT company_name FROM companies;				-- 100 diferent company_name (this is OK)  No duplicate
+SELECT MIN(company_id), MAX(company_id) FROM companies;
+SELECT * FROM companies WHERE company_name IS NULL;
+
+-- Transformation
+
+
 
 
 
