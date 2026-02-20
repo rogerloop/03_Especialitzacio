@@ -270,3 +270,34 @@ DROP COLUMN birth_date
 ALTER TABLE users		-- and rename
 RENAME COLUMN birth_date_temp TO birth_date
 ;
+
+-- Cleaning & transforming 'transactions' table
+
+SELECT COUNT(*) FROM transactions;						-- 100000 rows
+SELECT DISTINCT id FROM transactions;					-- 100000 rows
+SELECT DISTINCT card_id FROM transactions;				-- 50000 all card ID has been utilizated at list once finished or not transaction
+SELECT DISTINCT business_id FROM transactions;			-- 100 all companies has transactions, finished or not
+SELECT DISTINCT user_id FROM transactions;				-- 5000 all users has transactions, finished or not
+SELECT * FROM transactions WHERE id IS NULL;
+SELECT * FROM transactions WHERE `timestamp` IS NULL;
+SELECT * FROM transactions WHERE amount IS NULL;
+SELECT * FROM transactions WHERE declined IS NULL;		-- Ihaven't detect any NULL valeu in all the checked column.
+
+-- Transformation
+ALTER TABLE transactions
+ADD PRIMARY KEY (id)
+;
+
+-- cambiar nombre   business_id
+
+
+
+
+
+
+
+
+
+
+
+
