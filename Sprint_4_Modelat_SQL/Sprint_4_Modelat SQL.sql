@@ -146,15 +146,9 @@ IGNORE 1 ROWS
 
 -- DATA CLEANING & DATA TRANSFORMATION
 
--- Pre-Analysis steatment
-
-SELECT COUNT(*) FROM tabla;
-SELECT DISTINCT campo FROM tabla;
-SELECT MIN(campo), MAX(campo) FROM tabla;
-SELECT * FROM tabla WHERE campo IS NULL;
-
 -- Cleaning & transforming 'products' table
 
+-- EDA Exploratory Data Analysis
 SELECT COUNT(*) FROM products;
 SELECT DISTINCT product_name FROM products;			-- Result 70 rows meanning same product different colour
 SELECT product_name, count(id) FROM products
@@ -187,6 +181,7 @@ MODIFY weight DECIMAL(5, 1)
 
 -- Cleaning & transforming 'companies' table
 
+-- EDA Exploratory Data Analysis
 SELECT COUNT(*) FROM companies;								-- 100 rows
 SELECT DISTINCT company_id FROM companies;					-- 100 different id (this is OK) No duplicate
 SELECT DISTINCT company_name FROM companies;				-- 100 different company_name (this is OK)  No duplicate
@@ -200,6 +195,7 @@ ADD PRIMARY KEY (company_id)
 
 -- Cleaniung & transformation 'credit_cards' table
 
+-- EDA Exploratory Data Analysis
 SELECT COUNT(*) FROM credit_cards;						-- 5000 rows
 SELECT DISTINCT id FROM credit_cards;					-- 5000 rows there is not any duplicated id
 SELECT DISTINCT user_id FROM credit_cards;				-- 5000 rows there isn't any user that have more than 1 credit card registered
@@ -234,6 +230,7 @@ RENAME COLUMN expiring_date_temp TO expiring_date
 
 -- Cleaning & transforming 'users' table
 
+-- EDA Exploratory Data Analysis
 SELECT COUNT(*) FROM users;					-- 5000 rows
 SELECT DISTINCT id FROM users;				-- 5000 rows
 SELECT DISTINCT email FROM users;			-- 4999 diferent email
@@ -273,6 +270,7 @@ RENAME COLUMN birth_date_temp TO birth_date
 
 -- Cleaning & transforming 'transactions' table
 
+-- EDA Exploratory Data Analysis
 SELECT COUNT(*) FROM transactions;						-- 100000 rows
 SELECT DISTINCT id FROM transactions;					-- 100000 rows
 SELECT DISTINCT card_id FROM transactions;				-- 50000 all card ID has been utilizated at list once finished or not transaction
@@ -281,21 +279,50 @@ SELECT DISTINCT user_id FROM transactions;				-- 5000 all users has transactions
 SELECT * FROM transactions WHERE id IS NULL;
 SELECT * FROM transactions WHERE `timestamp` IS NULL;
 SELECT * FROM transactions WHERE amount IS NULL;
-SELECT * FROM transactions WHERE declined IS NULL;		-- Ihaven't detect any NULL valeu in all the checked column.
+SELECT * FROM transactions WHERE declined IS NULL;		-- I haven't detect any NULL valeu in all the checked column.
 
 -- Transformation
 ALTER TABLE transactions
 ADD PRIMARY KEY (id)
 ;
 
--- cambiar nombre   business_id
+-- change name and datatype  column 'business_id'
+ALTER TABLE transactions
+MODIFY COLUMN business_id VARCHAR(15)
+;
+ALTER TABLE transactions
+RENAME COLUMN business_id TO company_id
+;
+ALTER TABLE transactions
+MODIFY COLUMN `timestamp` TIMESTAMP
+;
+ALTER TABLE transactions
+MODIFY COLUMN amount DECIMAL(10, 2)
+;
+ALTER TABLE transactions
+MODIFY COLUMN lat DECIMAL(20, 16)
+;
+ALTER TABLE transactions
+MODIFY COLUMN longitude DECIMAL(20, 16)
+;
 
 
+-- DATA MODELING
 
+-- FOREIGN KEY (FK) Creation 
 
-
-
-
+ALTER TABLE transactions
+ADD CONSTRAINT FK_CreditCardsTransactions FOREIGN KEY (card_id)
+REFERENCES credit_cards(id)
+;
+ALTER TABLE transactions
+ADD CONSTRAINT FK_CompaniesTransactions FOREIGN KEY (company_id)
+REFERENCES companies(company_id)
+;
+ALTER TABLE transactions
+ADD CONSTRAINT FK_UsersTransactions FOREIGN KEY (user_id)
+REFERENCES users(id)
+;
 
 
 
