@@ -325,6 +325,11 @@ REFERENCES users(id)
 ;
 
 
+/* 
+
+Exercici 1
+Realitza una subconsulta que mostri tots els usuaris amb més de 80 transaccions utilitzant almenys 2 taules.
+*/
 
 
 
