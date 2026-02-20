@@ -41,7 +41,7 @@ LIMIT 10;
 
 -- Drop the column and rename
 ALTER TABLE credit_card
-DROP COLUMN expiring_date_temp
+DROP COLUMN expiring_date
 ;
 ALTER TABLE credit_card
 RENAME COLUMN expiring_date_temp TO expiring_date

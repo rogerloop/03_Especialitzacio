@@ -188,16 +188,48 @@ MODIFY weight DECIMAL(5, 1)
 -- Cleaning & transforming 'companies' table
 
 SELECT COUNT(*) FROM companies;								-- 100 rows
-SELECT DISTINCT company_id FROM companies;					-- 100 diferent id (this is OK) No duplicate
-SELECT DISTINCT company_name FROM companies;				-- 100 diferent company_name (this is OK)  No duplicate
+SELECT DISTINCT company_id FROM companies;					-- 100 different id (this is OK) No duplicate
+SELECT DISTINCT company_name FROM companies;				-- 100 different company_name (this is OK)  No duplicate
 SELECT MIN(company_id), MAX(company_id) FROM companies;
 SELECT * FROM companies WHERE company_name IS NULL;
 
 -- Transformation
+ALTER TABLE companies
+ADD PRIMARY KEY (company_id)
+;
 
+-- Cleaniung & transformation 'credit_cards' table
 
+SELECT COUNT(*) FROM credit_cards;						-- 5000 rows
+SELECT DISTINCT id FROM credit_cards;					-- 5000 rows there is not any duplicated id
+SELECT DISTINCT user_id FROM credit_cards;				-- 5000 rows there isn't any user that have more than 1 credit card registered
+SELECT DISTINCT iban FROM credit_cards;					-- 5000 rows there isn't any iban (account) with 2 or more cards
+SELECT MIN(user_id), MAX(user_id) FROM credit_cards;	-- min 1 max 5000 could be that all 5000 users have credit cards registered
+SELECT * FROM credit_cards WHERE expiring_date IS NULL; -- No Nulls on that field
 
-
-
+-- Transformation
+ALTER TABLE credit_cards
+ADD PRIMARY KEY (id)
+;
+-- Expiring date normalization
+ALTER TABLE credit_cards
+ADD expiring_date_temp DATE
+;
+-- Data checking in order to erase original column and rename the new one
+UPDATE credit_cards				
+SET expiring_date_temp = STR_TO_DATE(expiring_date, '%m/%d/%Y')
+WHERE expiring_date IS NOT NULL
+LIMIT 100000
+;
+SELECT expiring_date, expiring_date_temp   -- Check
+FROM credit_cards
+LIMIT 10
+;
+ALTER TABLE credit_cards   		-- Drop the column 
+DROP COLUMN expiring_date
+;
+ALTER TABLE credit_cards		-- and rename
+RENAME COLUMN expiring_date_temp TO expiring_date
+;
 
 
