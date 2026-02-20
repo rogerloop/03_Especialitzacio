@@ -211,7 +211,7 @@ SELECT * FROM credit_cards WHERE expiring_date IS NULL; -- No Nulls on that fiel
 ALTER TABLE credit_cards
 ADD PRIMARY KEY (id)
 ;
--- Expiring date normalization
+-- 'Expiring_date' normalization
 ALTER TABLE credit_cards
 ADD expiring_date_temp DATE
 ;
@@ -232,4 +232,41 @@ ALTER TABLE credit_cards		-- and rename
 RENAME COLUMN expiring_date_temp TO expiring_date
 ;
 
+-- Cleaning & transforming 'users' table
 
+SELECT COUNT(*) FROM users;					-- 5000 rows
+SELECT DISTINCT id FROM users;				-- 5000 rows
+SELECT DISTINCT email FROM users;			-- 4999 diferent email
+SELECT MIN(id), MAX(id) FROM users;			-- id from 1 to 5000 
+SELECT * FROM users WHERE email IS NULL;	-- there is no null email so should we have duplicated?
+SELECT email, COUNT(id) FROM users
+GROUP BY email								-- Confirmed de email 'et@outlook.net' is duplicated
+HAVING COUNT(id) > 1
+;
+SELECT * FROM users							-- This rows are completly different just the same email
+WHERE email = 'et@outlook.net';
+
+-- Transformation
+ALTER TABLE users
+ADD PRIMARY KEY (id)
+;
+-- 'birth_date' normalization
+ALTER TABLE users
+ADD birth_date_temp DATE
+;
+-- Data checking in order to erase original column and rename the new one
+UPDATE users				
+SET birth_date_temp = STR_TO_DATE(birth_date, '%b %e, %Y')
+WHERE birth_date IS NOT NULL
+LIMIT 60000
+;
+SELECT birth_date, birth_date_temp   -- Check
+FROM users
+LIMIT 10
+;
+ALTER TABLE users   		-- Drop the column 
+DROP COLUMN birth_date
+;
+ALTER TABLE users		-- and rename
+RENAME COLUMN birth_date_temp TO birth_date
+;
