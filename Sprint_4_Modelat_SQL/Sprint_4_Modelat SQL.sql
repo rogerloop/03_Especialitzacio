@@ -326,10 +326,41 @@ REFERENCES users(id)
 
 
 /* 
-
 Exercici 1
 Realitza una subconsulta que mostri tots els usuaris amb més de 80 transaccions utilitzant almenys 2 taules.
 */
 
+SELECT	u.id,
+		u.`name`,
+        u.surname,
+        transaction_user.num_transactions AS total_transactions
+FROM users u
+JOIN (
+	SELECT 	t.user_id,
+			COUNT(t.id) AS num_transactions
+	FROM transactions t
+	WHERE declined = 0
+	GROUP BY t.user_id
+	HAVING num_transactions > 80
+) AS transaction_user
+ON u.id = transaction_user.user_id
+ORDER BY total_transactions DESC
+;
 
+
+/*
+Exercici 2
+Mostra la mitjana d'amount per IBAN de les targetes de crèdit a la companyia Donec Ltd, utilitza almenys 2 taules.
+*/
+
+SELECT 	cc.iban,
+		c.company_name,
+        ROUND(AVG(t.amount),2) AS amount_average
+FROM transactions t
+JOIN credit_cards cc ON t.card_id = cc.id
+JOIN companies c ON t.company_id = c.company_id
+WHERE c.company_name = 'Donec Ltd'
+GROUP BY cc.iban, c.company_name
+ORDER BY AVG(t.amount) DESC
+;
 
