@@ -371,25 +371,40 @@ Crea una nova taula que reflecteixi l'estat de les targetes de crèdit
  si almenys una no és rebutjada aleshores és actiu. Partint d’aquesta taula respon:
 */
 
- CREATE TABLE credit_card_activated (
-	card_id VARCHAR(20) PRIMARY KEY,
-    activated TINYINT)
+ CREATE TABLE IF NOT EXISTS credit_card_activated (
+	card_id VARCHAR(20) PRIMARY KEY,                   -- Status table creation to store the status
+    activated TINYINT
+);
+
+INSERT INTO credit_card_activated 
+	(card_id, activated)								-- Insert initial values into table (5000 rows)
+    SELECT cc.id, 1 FROM credit_cards cc				-- All the Credit cards from credit_card table
+    WHERE cc.id = cc.id									-- I fill all 'activated' with 1 -- > activated 
 ;
 
-WITH last_transactions_card AS (
-	SELECT 	t.card_id,
+WITH 													-- CTEs for code simplification
+	last_transactions_card AS (							-- Find transactions by card
+	SELECT 	t.card_id,									-- With ROW_NUMBER I can know card_position by card
 			t.`timestamp`,
 			t.declined,
 			ROW_NUMBER () OVER (PARTITION BY t.card_id ORDER BY t.`timestamp` DESC) AS card_position
-	FROM transactions t)
+	FROM transactions t),
     
-SELECT 	card_id,
-		SUM(declined) AS total_declined        
-FROM last_transactions_card
-WHERE card_position <= 3
-GROUP BY card_id
-HAVING total_declined = 3
-;        
+    cards_three_declined AS (							-- Find cards thatn have 3 declined 
+	SELECT 	card_id,
+			SUM(declined) AS total_declined        
+	FROM last_transactions_card
+	WHERE card_position <= 3							-- in their 3 last transaction
+	GROUP BY card_id
+	HAVING total_declined = 3)
+    
+UPDATE credit_card_activated cca						-- Update statement setting 'activated' to 0
+SET														-- just for the 'card_id' with 3 declined 
+	activated = 0										-- in its last 3 transactions
+WHERE cca.card_id IN (SELECT card_id FROM cards_three_declined)
+AND cca.card_id IS NOT NULL								-- 2 lines necessaries to bypass 
+LIMIT 40000												-- the MySQL Workbench safe mode
+;
 
 
 /*
@@ -397,7 +412,39 @@ Exercici 1
 Quantes targetes estan actives?
 */
 
+SELECT COUNT(*) 
+FROM credit_card_activated 
+WHERE activated = 1
+;
 
 
+/*
+Nivell 3
+Crea una taula amb la qual puguem unir les dades del nou arxiu products.csv amb la base de dades creada, 
+tenint en compte que des de transaction tens product_ids. Genera la següent consulta:
 
+Exercici 1
+Necessitem conèixer el nombre de vegades que s'ha venut cada producte.
+*/
+
+CREATE TABLE transaction_product (
+	transaction_product_id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_id VARCHAR(255),
+    product_id INT,
+    FOREIGN KEY (transaction_id) REFERENCES transactions(id),
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    UNIQUE (transaction_id, product_id)
+);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
