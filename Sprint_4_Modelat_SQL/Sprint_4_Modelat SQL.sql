@@ -364,3 +364,40 @@ GROUP BY cc.iban, c.company_name
 ORDER BY AVG(t.amount) DESC
 ;
 
+/*
+Nivell 2
+Crea una nova taula que reflecteixi l'estat de les targetes de crèdit
+ basat en si les tres últimes transaccions han estat declinades aleshores és inactiu, 
+ si almenys una no és rebutjada aleshores és actiu. Partint d’aquesta taula respon:
+*/
+
+ CREATE TABLE credit_card_activated (
+	card_id VARCHAR(20) PRIMARY KEY,
+    activated TINYINT)
+;
+
+WITH last_transactions_card AS (
+	SELECT 	t.card_id,
+			t.`timestamp`,
+			t.declined,
+			ROW_NUMBER () OVER (PARTITION BY t.card_id ORDER BY t.`timestamp` DESC) AS card_position
+	FROM transactions t)
+    
+SELECT 	card_id,
+		SUM(declined) AS total_declined        
+FROM last_transactions_card
+WHERE card_position <= 3
+GROUP BY card_id
+HAVING total_declined = 3
+;        
+
+
+/*
+Exercici 1
+Quantes targetes estan actives?
+*/
+
+
+
+
+
