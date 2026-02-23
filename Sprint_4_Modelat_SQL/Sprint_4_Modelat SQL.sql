@@ -435,16 +435,14 @@ CREATE TABLE transaction_product (
     FOREIGN KEY (product_id) REFERENCES products(id),
     UNIQUE (transaction_id, product_id)
 );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
+  
+SELECT	t.id AS transaction_id,
+		jt.product_id
+FROM transactions t,
+JSON_TABLE(
+	CONCAT('[', REPLACE(product_ids, ' ', ''), ']'),
+    '$[*]' COLUMNS (product_id INT PATH '$')
+) AS jt
+;
 
