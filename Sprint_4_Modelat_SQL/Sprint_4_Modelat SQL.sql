@@ -436,7 +436,7 @@ CREATE TABLE transaction_product (
     UNIQUE (transaction_id, product_id)
 );
   
-  
+INSERT INTO transaction_product (transaction_id, product_id)
 SELECT	t.id AS transaction_id,
 		jt.product_id
 FROM transactions t,
