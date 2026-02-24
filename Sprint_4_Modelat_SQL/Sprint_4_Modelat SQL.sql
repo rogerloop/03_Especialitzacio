@@ -446,3 +446,7 @@ JSON_TABLE(
 ) AS jt
 ;
 
+
+
+
+SELECT * FROM starmarketplace.transaction_product;
