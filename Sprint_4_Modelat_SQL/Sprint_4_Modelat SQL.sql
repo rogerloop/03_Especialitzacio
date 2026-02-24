@@ -178,7 +178,6 @@ ALTER TABLE products
 MODIFY weight DECIMAL(5, 1)
 ;
 
-
 -- Cleaning & transforming 'companies' table
 
 -- EDA Exploratory Data Analysis
@@ -406,7 +405,6 @@ AND cca.card_id IS NOT NULL								-- 2 lines necessaries to bypass
 LIMIT 40000												-- the MySQL Workbench safe mode
 ;
 
-
 /*
 Exercici 1
 Quantes targetes estan actives?
@@ -422,9 +420,6 @@ WHERE activated = 1
 Nivell 3
 Crea una taula amb la qual puguem unir les dades del nou arxiu products.csv amb la base de dades creada, 
 tenint en compte que des de transaction tens product_ids. Genera la següent consulta:
-
-Exercici 1
-Necessitem conèixer el nombre de vegades que s'ha venut cada producte.
 */
 
 CREATE TABLE transaction_product (
@@ -446,7 +441,24 @@ JSON_TABLE(
 ) AS jt
 ;
 
-
-
-
 SELECT * FROM starmarketplace.transaction_product;
+
+/*
+Exercici 1
+Necessitem conèixer el nombre de vegades que s'ha venut cada producte.
+*/
+
+SELECT 	p.id,
+		p.product_name AS product,
+        COUNT(tp.transaction_id) AS sales_qty
+FROM transaction_product tp
+JOIN transactions t ON tp.transaction_id = t.id
+JOIN products p ON tp.product_id = p.id
+WHERE t.declined = 0
+GROUP BY tp.product_id
+ORDER BY COUNT(tp.transaction_id) DESC
+;
+
+
+
+
