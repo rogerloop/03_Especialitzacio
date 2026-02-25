@@ -353,13 +353,15 @@ Mostra la mitjana d'amount per IBAN de les targetes de crèdit a la companyia Do
 */
 
 SELECT 	cc.iban,
+		c.company_id,
 		c.company_name,
         ROUND(AVG(t.amount),2) AS amount_average
 FROM transactions t
 JOIN credit_cards cc ON t.card_id = cc.id
 JOIN companies c ON t.company_id = c.company_id
-WHERE c.company_name = 'Donec Ltd'
-GROUP BY cc.iban, c.company_name
+WHERE c.company_name = 'Donec Ltd' 
+AND t.declined = 0									-- Transactions finished ok
+GROUP BY cc.iban, c.company_name,c.company_id		-- company_id to avoid problems ex: 2 companies same name
 ORDER BY AVG(t.amount) DESC
 ;
 
@@ -410,7 +412,7 @@ Exercici 1
 Quantes targetes estan actives?
 */
 
-SELECT COUNT(*) 
+SELECT COUNT(*) AS num_active_cards
 FROM credit_card_activated 
 WHERE activated = 1
 ;
