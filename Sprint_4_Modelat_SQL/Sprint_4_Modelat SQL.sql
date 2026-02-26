@@ -450,6 +450,9 @@ Exercici 1
 Necessitem conèixer el nombre de vegades que s'ha venut cada producte.
 */
 
+
+-- Option A using FROM transaction_product table
+
 SELECT 	p.id,
 		p.product_name AS product,
         COUNT(tp.transaction_id) AS sales_qty
@@ -461,6 +464,15 @@ GROUP BY tp.product_id
 ORDER BY COUNT(tp.transaction_id) DESC
 ;
 
+-- Option B using FROM transactions table
 
-
-
+SELECT 	p.id,
+		p.product_name AS product,
+        COUNT(t.id) AS sales_qty
+FROM transactions t
+JOIN transaction_product tp ON tp.transaction_id = t.id
+JOIN products p ON tp.product_id = p.id
+WHERE t.declined = 0
+GROUP BY p.id
+ORDER BY COUNT(t.id) DESC
+;
