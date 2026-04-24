@@ -1,11 +1,35 @@
-.DS_Store
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
 .vscode/
-settings.json
+
+# Mac
+.DS_Store
+
+# Logs y temporales
 *.log
+*.tmp
 *.bak
-~$*
-.vscode/launch.json
-.idea/
+
+# Variables de entorno (MUY IMPORTANTE)
+.env
+
+# Archivos de sistema
 *.swp
 *.swo
 
+# Data opcional (decide tú)
+# data/
