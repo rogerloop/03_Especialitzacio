@@ -1,0 +1,56 @@
+DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,Grup Professional,Nom Complet,Nascut_Espanya,Data_naixament,Edat_actual,Increment
+44060014R,Jonas,Schneider,Alemanya,Berlín,22,11,1985,Home,2974.32,Sí,Grup D,Jonas Schneider,No,1985-11-22,40,0.08
+68512981B,Leon,Schneider Schneider,Alemanya,Hamburg,16,10,1977,Home,3222.72,No,Grup D,Leon Schneider Schneider,No,1977-10-16,48,0.08
+79911049R,Lea,Schneider,Alemanya,Munic,22,9,1950,Dona,2881.44,Sí,Grup D,Lea Schneider,No,1950-09-22,75,0.08
+26634596X,Laura,Schneider Müller,Alemanya,Munic,28,11,1990,Dona,3000.24,No,Grup D,Laura Schneider Müller,No,1990-11-28,35,0.08
+19313369G,Florencia,Rodríguez Álvarez,Argentina,Còrdova,27,11,1999,Dona,3255.12,No,Grup D,Florencia Rodríguez Álvarez,No,1999-11-27,26,0.08
+33484869X,Jordi,Sánchez,Espanya,Barcelona,6,6,1981,Home,2976.48,No,Grup D,Jordi Sánchez,Si,1981-06-06,44,0.08
+94898766F,Joan,Romero,Espanya,Barcelona,26,4,1969,Altres,3429.0,No,Grup D,Joan Romero,Si,1969-04-26,57,0.08
+19631537S,Laia,Ferrer,Espanya,Barcelona,21,12,1987,Dona,3051.0,Sí,Grup D,Laia Ferrer,Si,1987-12-21,38,0.08
+19356603P,Marta,Castells,Espanya,Barcelona,2,10,2003,Dona,2897.64,No,Grup D,Marta Castells,Si,2003-10-02,22,0.08
+13080692S,Eva,Ferrer Romero,Espanya,Barcelona,1,11,2005,Dona,3130.92,No,Grup D,Eva Ferrer Romero,Si,2005-11-01,20,0.08
+31532532F,Laia,Castells,Espanya,Bilbao,19,4,1950,Dona,2643.84,No,Grup D,Laia Castells,Si,1950-04-19,76,0.08
+86419307C,Eva,Castells Romero,Espanya,Bilbao,25,7,1988,Dona,2627.64,Sí,Grup D,Eva Castells Romero,Si,1988-07-25,37,0.08
+10624826J,Laia,Sánchez López,Espanya,Bilbao,5,8,1972,Dona,3201.12,No,Grup D,Laia Sánchez López,Si,1972-08-05,53,0.08
+46470158A,Arnau,Romero,Espanya,Bilbao,26,6,1951,Home,3595.32,Sí,Grup D,Arnau Romero,Si,1951-06-26,74,0.08
+65535145H,Pau,Castells,Espanya,Bilbao,20,7,1953,Home,3188.16,No,Grup D,Pau Castells,Si,1953-07-20,72,0.08
+26930927E,Laia,Castells Ferrer,Espanya,Madrid,16,12,1953,Altres,2819.88,No,Grup D,Laia Castells Ferrer,Si,1953-12-16,72,0.08
+33234964B,Marta,Romero,Espanya,Madrid,10,5,2001,Dona,3034.8,Sí,Grup D,Marta Romero,Si,2001-05-10,25,0.08
+98967015K,Laia,Martínez Sánchez,Espanya,Madrid,14,6,1961,Dona,2803.68,No,Grup D,Laia Martínez Sánchez,Si,1961-06-14,64,0.08
+58465525T,Clara,Ferrer,Espanya,Madrid,17,7,1990,Dona,2893.32,No,Grup D,Clara Ferrer,Si,1990-07-17,35,0.08
+17081236L,Eva,Sánchez,Espanya,Madrid,9,9,1992,Dona,3115.8,Sí,Grup D,Eva Sánchez,Si,1992-09-09,33,0.08
+97855153L,Carla,Martínez,Espanya,Madrid,21,3,1973,Dona,3078.0,No,Grup D,Carla Martínez,Si,1973-03-21,53,0.08
+58966169Z,Núria,Sánchez Castells,Espanya,Madrid,12,5,1981,,2961.36,No,Grup D,Núria Sánchez Castells,Si,1981-05-12,45,0.08
+88845881E,Pau,Martínez López,Espanya,Madrid,3,11,2000,Home,3007.8,Sí,Grup D,Pau Martínez López,Si,2000-11-03,25,0.08
+67448348B,Pau,García Romero,Espanya,Madrid,27,12,1983,Home,3046.68,No,Grup D,Pau García Romero,Si,1983-12-27,42,0.08
+33366982Q,Pau,García,Espanya,Madrid,11,3,1976,,3142.8,No,Grup D,Pau García,Si,1976-03-11,50,0.08
+96810023K,Jordi,López,Espanya,Madrid,25,6,1995,Home,3518.64,No,Grup D,Jordi López,Si,1995-06-25,30,0.08
+87285985P,Clara,Sánchez,Espanya,Madrid,1,10,2002,Altres,3393.36,Sí,Grup D,Clara Sánchez,Si,2002-10-01,23,0.08
+23290905N,Laia,López Castells,Espanya,Madrid,13,8,1971,,2824.2,Sí,Grup D,Laia López Castells,Si,1971-08-13,54,0.08
+30561064P,Oriol,López Castells,Espanya,Madrid,14,4,1987,Home,3624.48,No,Grup D,Oriol López Castells,Si,1987-04-14,39,0.08
+60305889V,Oriol,Ferrer,Espanya,Madrid,12,3,1995,Home,3517.56,Sí,Grup D,Oriol Ferrer,Si,1995-03-12,31,0.08
+49712589T,Marta,López,Espanya,Madrid,9,7,2004,Dona,2986.2,No,Grup D,Marta López,Si,2004-07-09,21,0.08
+32447081S,Marc,Martínez,Espanya,Sevilla,1,8,1977,Home,3283.2,No,Grup D,Marc Martínez,Si,1977-08-01,48,0.08
+81229041Z,Carla,López Ferrer,Espanya,Sevilla,4,9,1962,Dona,3089.88,No,Grup D,Carla López Ferrer,Si,1962-09-04,63,0.08
+94076717B,Marc,López,Espanya,Sevilla,8,2,1987,,3206.52,No,Grup D,Marc López,Si,1987-02-08,39,0.08
+31274825R,Clara,García Martínez,Espanya,Sevilla,2,9,1986,Dona,2587.68,No,Grup D,Clara García Martínez,Si,1986-09-02,39,0.08
+68247465J,Joan,Martínez Romero,Espanya,Sevilla,4,7,1971,Home,3213.0,No,Grup D,Joan Martínez Romero,Si,1971-07-04,54,0.08
+12868239Z,Toni,López,Espanya,Sevilla,10,3,1989,Home,3112.56,No,Grup D,Toni López,Si,1989-03-10,37,0.08
+96650060J,Anna,Sánchez Castells,Espanya,Sevilla,1,2,1960,Dona,2840.4,No,Grup D,Anna Sánchez Castells,Si,1960-02-01,66,0.08
+58847232T,Arnau,Sánchez García,Espanya,València,24,2,1978,Home,3545.64,No,Grup D,Arnau Sánchez García,Si,1978-02-24,48,0.08
+73128127J,Arnau,Castells Sánchez,Espanya,València,17,4,1998,Home,3014.28,No,Grup D,Arnau Castells Sánchez,Si,1998-04-17,28,0.08
+87813160D,Arnau,Ferrer,Espanya,València,24,3,1990,Altres,2813.4,Sí,Grup D,Arnau Ferrer,Si,1990-03-24,36,0.08
+63108914N,Joan,Martínez Sánchez,Espanya,València,18,2,1986,Home,3583.44,Sí,Grup D,Joan Martínez Sánchez,Si,1986-02-18,40,0.08
+53672811D,Carla,Sánchez,Espanya,València,6,3,1957,Dona,3187.08,Sí,Grup D,Carla Sánchez,Si,1957-03-06,69,0.08
+30289780L,Clara,López,Espanya,València,17,2,1951,Dona,3150.36,Sí,Grup D,Clara López,Si,1951-02-17,75,0.08
+26689120S,Clara,Romero,Espanya,València,4,1,1974,Dona,3262.68,Sí,Grup D,Clara Romero,Si,1974-01-04,52,0.08
+29203160E,Arnau,López Martínez,Espanya,València,24,1,1970,Home,3513.24,Sí,Grup D,Arnau López Martínez,Si,1970-01-24,56,0.08
+70201568H,Joan,Martínez Ferrer,Espanya,València,12,3,1964,Home,3137.4,No,Grup D,Joan Martínez Ferrer,Si,1964-03-12,62,0.08
+68438696L,Clara,López Castells,Espanya,València,9,4,1982,Dona,3242.16,No,Grup D,Clara López Castells,Si,1982-04-09,44,0.08
+89245220G,Michel,Lefevre,França,París,21,8,1974,Home,2873.88,No,Grup D,Michel Lefevre,No,1974-08-21,51,0.08
+14345055N,Michel,Girard Dubois,França,París,9,8,1970,Home,3210.84,No,Grup D,Michel Girard Dubois,No,1970-08-09,55,0.08
+28237150F,Giovanni,Rossi Russo,Itàlia,Torí,10,12,2000,Home,3093.12,Sí,Grup D,Giovanni Rossi Russo,No,2000-12-10,25,0.08
+99258742G,Amina,Bennani,Marroc,Casablanca,22,10,2004,Dona,3183.84,Sí,Grup D,Amina Bennani,No,2004-10-22,21,0.08
+81992107P,María,Cruz,Mèxic,Ciutat de Mèxic,14,3,1958,Dona,2865.24,Sí,Grup D,María Cruz,No,1958-03-14,68,0.08
+91487269P,Maria,Silva Oliveira,Portugal,Lisboa,4,9,1993,,3125.52,No,Grup D,Maria Silva Oliveira,No,1993-09-04,32,0.08
+25997800F,Beatriz,Ferreira Pereira,Portugal,Lisboa,25,10,2004,Dona,2566.08,Sí,Grup D,Beatriz Ferreira Pereira,No,2004-10-25,21,0.08
