@@ -234,7 +234,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 92136991X,Laia,Ferrer,Espanya,Madrid,18,8,1973,Dona,1137.15,Sí,Grup A,Laia Ferrer,Si,1973-08-18,52,0.05
 77617404G,Joan,Martínez Romero,Espanya,Madrid,19,6,1972,Home,1185.45,Sí,Grup A,Joan Martínez Romero,Si,1972-06-19,53,0.05
 54035649P,Eva,Martínez Martínez,Espanya,Madrid,16,9,2003,Dona,1355.55,No,Grup A,Eva Martínez Martínez,Si,2003-09-16,22,0.05
-27743987C,Joan,García Ferrer,Espanya,Madrid,1,6,1975,Home,840.0,Sí,Grup A,Joan García Ferrer,Si,1975-06-01,50,0.05
+27743987C,Joan,García Ferrer,Espanya,Madrid,1,6,1975,Home,840.0,Sí,Grup A,Joan García Ferrer,Si,1975-06-01,51,0.05
 60786095W,Marc,García,Espanya,Madrid,8,1,1972,Altres,1630.65,No,Grup A,Marc García,Si,1972-01-08,54,0.05
 23397473D,Anna,Romero,Espanya,Madrid,11,3,1990,Dona,1010.1,No,Grup A,Anna Romero,Si,1990-03-11,36,0.05
 59876171G,Arnau,Sánchez,Espanya,Madrid,28,10,1973,Home,1024.8,Sí,Grup A,Arnau Sánchez,Si,1973-10-28,52,0.05
@@ -253,7 +253,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 83982081H,Eva,Castells,Espanya,Sevilla,3,5,1968,,1309.35,Sí,Grup A,Eva Castells,Si,1968-05-03,58,0.05
 95012750D,Carla,García,Espanya,Sevilla,17,5,1952,Dona,1011.15,Sí,Grup A,Carla García,Si,1952-05-17,74,0.05
 38605068P,Toni,Martínez,Espanya,Sevilla,24,7,1982,Home,1590.75,Sí,Grup A,Toni Martínez,Si,1982-07-24,43,0.05
-10911456V,Marta,López,Espanya,Sevilla,6,6,1954,Dona,1558.2,No,Grup A,Marta López,Si,1954-06-06,71,0.05
+10911456V,Marta,López,Espanya,Sevilla,6,6,1954,Dona,1558.2,No,Grup A,Marta López,Si,1954-06-06,72,0.05
 94678339J,Anna,Martínez Martínez,Espanya,Sevilla,10,4,1985,Dona,1399.65,No,Grup A,Anna Martínez Martínez,Si,1985-04-10,41,0.05
 96108474K,Clara,García,Espanya,Sevilla,10,3,1955,Dona,849.45,No,Grup A,Clara García,Si,1955-03-10,71,0.05
 45293682M,Joan,Sánchez,Espanya,Sevilla,5,8,1988,Home,1125.6,Sí,Grup A,Joan Sánchez,Si,1988-08-05,37,0.05
@@ -273,7 +273,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 10261037F,Clara,Sánchez,Espanya,Sevilla,14,10,1970,Dona,984.9,Sí,Grup A,Clara Sánchez,Si,1970-10-14,55,0.05
 57192874B,Pau,Romero Romero,Espanya,Sevilla,12,4,1990,Home,987.0,No,Grup A,Pau Romero Romero,Si,1990-04-12,36,0.05
 20637004R,Jordi,Romero López,Espanya,Sevilla,13,3,1973,Home,1434.3,No,Grup A,Jordi Romero López,Si,1973-03-13,53,0.05
-94719538H,Carla,Romero Ferrer,Espanya,Sevilla,28,5,1991,Dona,766.5,No,Grup A,Carla Romero Ferrer,Si,1991-05-28,34,0.05
+94719538H,Carla,Romero Ferrer,Espanya,Sevilla,28,5,1991,Dona,766.5,No,Grup A,Carla Romero Ferrer,Si,1991-05-28,35,0.05
 57180085D,Marta,López,Espanya,Sevilla,25,8,1971,Dona,1108.8,Sí,Grup A,Marta López,Si,1971-08-25,54,0.05
 23492566L,Arnau,Ferrer García,Espanya,Sevilla,17,3,1989,Home,1445.85,No,Grup A,Arnau Ferrer García,Si,1989-03-17,37,0.05
 25403469P,Clara,García,Espanya,Sevilla,19,8,1998,Dona,784.35,No,Grup A,Clara García,Si,1998-08-19,27,0.05
