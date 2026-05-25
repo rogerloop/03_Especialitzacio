@@ -9,7 +9,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 18876645B,Matías,Gómez Álvarez,Argentina,Buenos Aires,4,12,1955,Home,1378.65,No,Grup A,Matías Gómez Álvarez,No,1955-12-04,70,0.05
 74694535Z,Lucía,Fernández,Argentina,Buenos Aires,8,8,1953,Dona,802.2,No,Grup A,Lucía Fernández,No,1953-08-08,72,0.05
 91347406Y,Lucía,Fernández,Argentina,Buenos Aires,28,11,1978,,795.9,No,Grup A,Lucía Fernández,No,1978-11-28,47,0.05
-33214782A,Matías,Rodríguez,Argentina,Buenos Aires,12,6,1950,,1107.75,No,Grup A,Matías Rodríguez,No,1950-06-12,75,0.05
+33214782A,Matías,Rodríguez,Argentina,Buenos Aires,12,6,1950,,1107.75,No,Grup A,Matías Rodríguez,No,1950-06-12,76,0.05
 83374173K,Florencia,Álvarez,Argentina,Buenos Aires,14,11,1961,Dona,1095.15,No,Grup A,Florencia Álvarez,No,1961-11-14,64,0.05
 26130098V,Lucas,Álvarez,Argentina,Buenos Aires,2,8,1978,Home,943.95,Sí,Grup A,Lucas Álvarez,No,1978-08-02,47,0.05
 72582805W,Juan,Álvarez,Argentina,Buenos Aires,21,2,1968,Home,931.35,Sí,Grup A,Juan Álvarez,No,1968-02-21,58,0.05
@@ -72,7 +72,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 69900538Q,Núria,López Romero,Espanya,Barcelona,17,9,1957,Dona,1099.35,No,Grup A,Núria López Romero,Si,1957-09-17,68,0.05
 97525504X,Laia,Martínez,Espanya,Barcelona,22,1,1951,Dona,1247.4,Sí,Grup A,Laia Martínez,Si,1951-01-22,75,0.05
 34349532Y,Marc,Ferrer Sánchez,Espanya,Barcelona,15,7,1977,Home,1757.7,No,Grup A,Marc Ferrer Sánchez,Si,1977-07-15,48,0.05
-52037173E,Núria,García Martínez,Espanya,Barcelona,26,5,2005,Dona,1386.0,Sí,Grup A,Núria García Martínez,Si,2005-05-26,20,0.05
+52037173E,Núria,García Martínez,Espanya,Barcelona,26,5,2005,Dona,1386.0,Sí,Grup A,Núria García Martínez,Si,2005-05-26,21,0.05
 37325572G,Carla,López López,Espanya,Barcelona,7,3,1956,Dona,852.6,Sí,Grup A,Carla López López,Si,1956-03-07,70,0.05
 21309247F,Oriol,García Ferrer,Espanya,Barcelona,9,12,2003,Home,1683.15,Sí,Grup A,Oriol García Ferrer,Si,2003-12-09,22,0.05
 71124235C,Carla,Ferrer,Espanya,Barcelona,27,10,1987,Dona,877.8,No,Grup A,Carla Ferrer,Si,1987-10-27,38,0.05
@@ -210,7 +210,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 62868203H,Marta,López,Espanya,Madrid,26,8,1988,Dona,1405.95,Sí,Grup A,Marta López,Si,1988-08-26,37,0.05
 25373007Z,Eva,García,Espanya,Madrid,10,3,1971,,1289.4,Sí,Grup A,Eva García,Si,1971-03-10,55,0.05
 90904549G,Marc,López Martínez,Espanya,Madrid,18,11,2004,Home,1338.75,Sí,Grup A,Marc López Martínez,Si,2004-11-18,21,0.05
-48610709N,Toni,García García,Espanya,Madrid,9,6,1958,Home,1470.0,Sí,Grup A,Toni García García,Si,1958-06-09,67,0.05
+48610709N,Toni,García García,Espanya,Madrid,9,6,1958,Home,1470.0,Sí,Grup A,Toni García García,Si,1958-06-09,68,0.05
 38394682L,Clara,Sánchez Ferrer,Espanya,Madrid,21,4,1963,Dona,1390.2,Sí,Grup A,Clara Sánchez Ferrer,Si,1963-04-21,63,0.05
 30011388C,Jordi,Sánchez Ferrer,Espanya,Madrid,2,4,1977,Home,1064.7,No,Grup A,Jordi Sánchez Ferrer,Si,1977-04-02,49,0.05
 53118513Z,Carla,Martínez Sánchez,Espanya,Madrid,6,2,2004,Dona,723.45,Sí,Grup A,Carla Martínez Sánchez,Si,2004-02-06,22,0.05
@@ -293,7 +293,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 73063501Z,Eva,Ferrer,Espanya,Sevilla,4,11,1990,Dona,1433.25,Sí,Grup A,Eva Ferrer,Si,1990-11-04,35,0.05
 36106979Y,Pau,Sánchez,Espanya,Sevilla,1,2,1953,Home,1088.85,No,Grup A,Pau Sánchez,Si,1953-02-01,73,0.05
 83602803G,Joan,Ferrer,Espanya,Sevilla,2,2,1964,Home,1273.65,No,Grup A,Joan Ferrer,Si,1964-02-02,62,0.05
-80909731Y,Jordi,García López,Espanya,Sevilla,6,6,1971,Home,1311.45,Sí,Grup A,Jordi García López,Si,1971-06-06,54,0.05
+80909731Y,Jordi,García López,Espanya,Sevilla,6,6,1971,Home,1311.45,Sí,Grup A,Jordi García López,Si,1971-06-06,55,0.05
 87865381W,Marta,Martínez,Espanya,Sevilla,17,7,2000,Dona,1256.85,No,Grup A,Marta Martínez,Si,2000-07-17,25,0.05
 26414747E,Oriol,Martínez,Espanya,Sevilla,23,12,1991,Home,843.15,Sí,Grup A,Oriol Martínez,Si,1991-12-23,34,0.05
 19863880V,Carla,López Romero,Espanya,Sevilla,22,4,1954,Dona,1231.65,Sí,Grup A,Carla López Romero,Si,1954-04-22,72,0.05
@@ -301,7 +301,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 45203656T,Laia,Ferrer,Espanya,Sevilla,18,6,1988,Dona,994.35,No,Grup A,Laia Ferrer,Si,1988-06-18,37,0.05
 18873517G,Jordi,García Martínez,Espanya,Sevilla,7,2,1974,Home,812.7,Sí,Grup A,Jordi García Martínez,Si,1974-02-07,52,0.05
 53730243G,Anna,Ferrer Romero,Espanya,Sevilla,24,1,2005,Dona,753.9,No,Grup A,Anna Ferrer Romero,Si,2005-01-24,21,0.05
-66795744Q,Núria,López,Espanya,Sevilla,7,6,1956,Dona,1379.7,No,Grup A,Núria López,Si,1956-06-07,69,0.05
+66795744Q,Núria,López,Espanya,Sevilla,7,6,1956,Dona,1379.7,No,Grup A,Núria López,Si,1956-06-07,70,0.05
 38900939H,Pau,Ferrer,Espanya,Sevilla,23,2,1996,Home,1582.35,Sí,Grup A,Pau Ferrer,Si,1996-02-23,30,0.05
 95233500R,Clara,López García,Espanya,Sevilla,18,8,1955,Dona,1037.4,No,Grup A,Clara López García,Si,1955-08-18,70,0.05
 90131757Y,Toni,Castells,Espanya,Sevilla,11,5,2004,Home,1420.65,No,Grup A,Toni Castells,Si,2004-05-11,22,0.05
@@ -350,7 +350,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 35909931K,Laia,Martínez López,Espanya,València,17,5,1976,Dona,1237.95,Sí,Grup A,Laia Martínez López,Si,1976-05-17,50,0.05
 75690264M,Anna,Romero,Espanya,València,17,11,1976,Dona,1350.3,No,Grup A,Anna Romero,Si,1976-11-17,49,0.05
 72548015K,Núria,Romero Castells,Espanya,València,10,4,1996,,814.8,No,Grup A,Núria Romero Castells,Si,1996-04-10,30,0.05
-15071348H,Núria,Romero,Espanya,València,11,6,1951,Dona,747.6,No,Grup A,Núria Romero,Si,1951-06-11,74,0.05
+15071348H,Núria,Romero,Espanya,València,11,6,1951,Dona,747.6,No,Grup A,Núria Romero,Si,1951-06-11,75,0.05
 36334567G,Pau,Martínez López,Espanya,València,19,12,1994,Home,1572.9,No,Grup A,Pau Martínez López,Si,1994-12-19,31,0.05
 47691452T,Laia,Romero,Espanya,València,18,7,1950,Dona,1057.35,No,Grup A,Laia Romero,Si,1950-07-18,75,0.05
 48127366Y,Pau,Sánchez,Espanya,València,26,5,1954,Home,1481.55,No,Grup A,Pau Sánchez,Si,1954-05-26,72,0.05
@@ -365,7 +365,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 90464341H,Jordi,Ferrer Martínez,Espanya,València,12,11,1981,Home,1747.2,No,Grup A,Jordi Ferrer Martínez,Si,1981-11-12,44,0.05
 95204020C,Oriol,Castells Ferrer,Espanya,València,14,10,1959,Home,1654.8,Sí,Grup A,Oriol Castells Ferrer,Si,1959-10-14,66,0.05
 22553315Z,Carla,López,Espanya,València,27,6,1972,Dona,957.6,No,Grup A,Carla López,Si,1972-06-27,53,0.05
-93864786W,Marc,Romero,Espanya,València,8,6,1957,Home,832.65,Sí,Grup A,Marc Romero,Si,1957-06-08,68,0.05
+93864786W,Marc,Romero,Espanya,València,8,6,1957,Home,832.65,Sí,Grup A,Marc Romero,Si,1957-06-08,69,0.05
 39256461F,Oriol,Martínez,Espanya,València,17,7,1951,Home,1672.65,No,Grup A,Oriol Martínez,Si,1951-07-17,74,0.05
 61643122A,Marta,Sánchez,Espanya,València,28,10,1980,Dona,1424.85,Sí,Grup A,Marta Sánchez,Si,1980-10-28,45,0.05
 80132051V,Carla,López,Espanya,València,4,6,1994,Dona,1043.7,Sí,Grup A,Carla López,Si,1994-06-04,31,0.05

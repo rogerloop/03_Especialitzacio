@@ -40,7 +40,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 14688639J,Toni,Castells Ferrer,Espanya,Barcelona,15,11,1974,,1904.4,No,Grup B,Toni Castells Ferrer,Si,1974-11-15,51,0.035
 56867791S,Marc,Castells Sánchez,Espanya,Barcelona,24,6,2000,Home,1446.93,No,Grup B,Marc Castells Sánchez,Si,2000-06-24,25,0.035
 92774049Y,Oriol,Romero García,Espanya,Barcelona,5,9,1972,Home,1512.14,No,Grup B,Oriol Romero García,Si,1972-09-05,53,0.035
-20520614Y,Núria,Ferrer,Espanya,Barcelona,9,6,1959,,2029.63,No,Grup B,Núria Ferrer,Si,1959-06-09,66,0.035
+20520614Y,Núria,Ferrer,Espanya,Barcelona,9,6,1959,,2029.63,No,Grup B,Núria Ferrer,Si,1959-06-09,67,0.035
 47660164G,Jordi,Romero Martínez,Espanya,Barcelona,11,6,1983,Home,2383.6,No,Grup B,Jordi Romero Martínez,Si,1983-06-11,42,0.035
 37655961A,Núria,García,Espanya,Barcelona,2,5,1989,Dona,1683.94,Sí,Grup B,Núria García,Si,1989-05-02,37,0.035
 68186758D,Carla,García,Espanya,Barcelona,6,10,2001,Dona,2030.67,Sí,Grup B,Carla García,Si,2001-10-06,24,0.035
@@ -138,7 +138,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 75347458Q,Toni,Martínez,Espanya,Bilbao,25,12,1974,Home,1398.28,No,Grup B,Toni Martínez,Si,1974-12-25,51,0.035
 24140397D,Oriol,Sánchez,Espanya,Bilbao,11,9,1989,Home,2189.02,Sí,Grup B,Oriol Sánchez,Si,1989-09-11,36,0.035
 12559305B,Núria,García Ferrer,Espanya,Bilbao,11,4,1982,Dona,1819.53,Sí,Grup B,Núria García Ferrer,Si,1982-04-11,44,0.035
-22021087Z,Núria,García López,Espanya,Madrid,8,6,1969,Dona,1422.09,No,Grup B,Núria García López,Si,1969-06-08,56,0.035
+22021087Z,Núria,García López,Espanya,Madrid,8,6,1969,Dona,1422.09,No,Grup B,Núria García López,Si,1969-06-08,57,0.035
 90731738C,Pau,Martínez,Espanya,Madrid,17,8,1999,Home,2039.98,No,Grup B,Pau Martínez,Si,1999-08-17,26,0.035
 45581974X,Núria,Romero,Espanya,Madrid,26,10,1993,Dona,1399.32,Sí,Grup B,Núria Romero,Si,1993-10-26,32,0.035
 12763903J,Eva,Martínez,Espanya,Madrid,19,10,1974,,2085.52,No,Grup B,Eva Martínez,Si,1974-10-19,51,0.035
@@ -311,7 +311,7 @@ DNI,Nom,Cognoms,País d'origen,Ciutat,Dia,Mes,Any,Gènere,Salari mensual,Fills,G
 77255461X,Maria,Ferreira Ferreira,Portugal,Porto,4,3,1996,Dona,1962.36,Sí,Grup B,Maria Ferreira Ferreira,No,1996-03-04,30,0.035
 73326255V,João,Silva,Portugal,Porto,23,10,1970,Home,2053.44,Sí,Grup B,João Silva,No,1970-10-23,55,0.035
 15594293F,Emily,Jones,Regne Unit,Londres,15,11,1969,Dona,1318.59,No,Grup B,Emily Jones,No,1969-11-15,56,0.035
-66854670R,George,Jones Taylor,Regne Unit,Londres,27,5,2000,,2173.5,No,Grup B,George Jones Taylor,No,2000-05-27,25,0.035
+66854670R,George,Jones Taylor,Regne Unit,Londres,27,5,2000,,2173.5,No,Grup B,George Jones Taylor,No,2000-05-27,26,0.035
 25490219L,William,Smith Smith,Regne Unit,Londres,1,12,1952,Home,1700.5,Sí,Grup B,William Smith Smith,No,1952-12-01,73,0.035
 50261072D,Sophie,Taylor Smith,Regne Unit,Londres,26,12,2005,Dona,1721.2,No,Grup B,Sophie Taylor Smith,No,2005-12-26,20,0.035
 37846341L,Isla,Jones,Regne Unit,Manchester,26,6,1985,Dona,1461.42,Sí,Grup B,Isla Jones,No,1985-06-26,40,0.035
