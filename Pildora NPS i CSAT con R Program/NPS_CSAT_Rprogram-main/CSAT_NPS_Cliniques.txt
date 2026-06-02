@@ -1,0 +1,212 @@
+Title: "Análisis NPS y CSAT"
+
+
+Dagoberto Itriago
+
+
+
+
+1.- Cargar dataset Clinica Dental
+
+
+.- Files/ Upload
+.- Enviroment/ Import dataset Clinica dental_1000_casos.csv
+
+
+2.- Instalar y cargar en consola de Posit Cloud (la parte de abajo a la derecha
+
+Copiar todo a la vez y pegar 
+
+
+install.packages('skimr') #para exploración inicial 
+install.packages('lubridate') #para manipular fechas 
+install.packages('tidyr') #para manipular datos 
+install.packages('ggplot2') #para hacer gráficos
+
+
+Cargar librerías 
+
+
+library(ggplot2) 
+library(dplyr) 
+library(skimr) 
+library(lubridate) 
+library(tidyr) 
+library(ggplot2) 
+
+
+3.- Análisis EDA 
+
+
+Antes: Cambiar el nombre del Archivo
+
+
+> Df <-clinica_dental_1000_casos
+
+
+3.1.- Estructura
+str(Df)
+Names(Df) #Nombre de las columnas
+dim(Df) #Cantidad de datos
+
+
+
+
+3.2.- Análisis Exploratorio (EDA)
+
+
+> head(Df)
+> summary(Df)
+> skim(Df) 
+
+
+4.- Calcular en CSAT
+
+
+Df$satisfecho <- ifelse(Df$csat >= 4, 1, 0)
+
+
+
+
+¿Qué hemos hecho?
+
+
+1.- Creame una variable que se llame satisfecho dentro del DataFrame
+2.- ifelse Que esa variable la coges CSAT en donde >= 4 le coloques 1 y el resto 0
+
+
+
+
+
+
+Calcular porcentaje
+
+
+csat_total <- mean(Df$satisfecho) * 100
+
+
+csat_total: 71,9% 
+
+
+¿Cuál seria el análisis? hay sastisfacción o no?
+
+
+5.- Calcular el NPS
+
+
+Df$tipo_nps <- case_when(
+ Df$nps >= 9 ~ "Promotor",
+ Df$nps >= 7 ~ "Neutros",
+ TRUE ~ "Detractor"
+)
+¿ Qué hemos hecho? case_when
+
+
+Agregar una columna llamada tipo NPS en donde damos nombre a cada una de las categorías con los conceptos claves que componen el calculo del NPS
+
+
+verificamos su distribución con table 
+
+
+table(Df$tipo_nps) y cuánto nos da?
+
+
+Detractor   Neutros  Promotor 
+      199       413       388 
+      
+
+
+6.- Calcular porcentajes
+
+
+promotores <- mean(Df$tipo_nps == "Promotor") * 100
+detractores <- mean(Df$tipo_nps == "Detractor") * 100
+
+
+nps_final <- promotores - detractores
+
+
+nps_final
+
+
+el resultado es: 18.9% es un nivel Bajo
+
+
+
+
+7.- Gráfico de CSAT
+ 
+  Probamos con frecuencias:
+ 
+ggplot(Df, aes(x = factor(csat))) +
+ geom_bar(fill = "steelblue") +
+ labs(
+   title = "Distribución de CSAT",
+   x = "Nivel de satisfacción",
+   y = "Frecuencia"
+ )
+ 
+ 7.1.- ¿Qué hemos hecho?
+ 
+ .- gglpot: creamos una gráfico del dataset Df
+ .- geom_bar: le decimos que sea un gráfico de barras
+ .- aes: definimos la variable. en el eje X= tipo de NPS
+ .- Fill: coleramos el gráfico según la categoria
+ .- labs: Colocamos los títulos del eje de las X Nivel de satisfacción) y el eje de las Y (Frecuencia )
+ 
+Y lo pasamos a porcentajes
+
+
+ggplot(Df, aes(x = factor(csat))) +
+  geom_bar(aes(y = after_stat(count / sum(count) * 100)),
+           fill = "steelblue") +
+  labs(
+    title = "Distribución de CSAT",
+    x = "Nivel de satisfacción",
+    y = "Porcentaje"
+  )
+  
+  9.- Grafico NPS
+  
+  En frecuencias
+  
+  ggplot(Df, aes(x = tipo_nps, fill = tipo_nps)) +
+ geom_bar() +
+ labs(
+   title = "Clasificación NPS",
+   x = "Tipo de cliente",
+   y = "Cantidad"
+ )
+
+
+En porcentajes
+
+
+library(scales)
+
+
+ggplot(Df, aes(x = tipo_nps, fill = tipo_nps)) +
+  geom_bar(aes(y = after_stat(count / sum(count)))) +
+  scale_y_continuous(labels = percent) +
+  labs(
+    title = "Clasificación NPS",
+    x = "Tipo de cliente",
+    y = "Porcentaje"
+  )
+  
+  
+10.- Analizar tiempos de espera
+
+
+ggplot(Df, aes(x = tiempo_espera, y = csat)) +
+ geom_point() +
+ geom_smooth(method = "lm")
+
+
+a mayor tiemnpo de espera menor satisfacción
+
+
+10.1.- ¿Qué hemos hecho?
+
+
+.- Usando geom_point y geom_smooth (method = "lm") Calculamos una regresión simple
