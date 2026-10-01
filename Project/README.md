@@ -19,11 +19,11 @@ Traditional weather forecasts often struggle to capture local thermal wind pheno
 
 ---
 
-## 🎯 Project Presentation
+##  Project Presentation
 
-[Project conclusion presentation pdf](https://github.com/rogerloop/03_Especialitzacio/blob/main/Project/thermal-wind-prediction/presentation/Task%20S13.01.%20Projecte%20final/1_Presentation%20-%20GO%20-%20NO%20GO%20-%20Intelligent%20Sea%20Breeze%20Prediction%20System.pdf)
+📖 [Project conclusion presentation pdf](https://github.com/rogerloop/03_Especialitzacio/blob/main/Project/thermal-wind-prediction/presentation/Task%20S13.01.%20Projecte%20final/1_Presentation%20-%20GO%20-%20NO%20GO%20-%20Intelligent%20Sea%20Breeze%20Prediction%20System.pdf)
 
-[Project conclusion presentation Keynote to download](https://github.com/rogerloop/03_Especialitzacio/blob/main/Project/thermal-wind-prediction/presentation/Task%20S13.01.%20Projecte%20final/1_Presentation%20-%20GO%20%3A%20NO%20GO%20-%20Intelligent%20Sea%20Breeze%20Prediction%20System.key)
+🖥️ [Project conclusion presentation Keynote to download](https://github.com/rogerloop/03_Especialitzacio/blob/main/Project/thermal-wind-prediction/presentation/Task%20S13.01.%20Projecte%20final/1_Presentation%20-%20GO%20%3A%20NO%20GO%20-%20Intelligent%20Sea%20Breeze%20Prediction%20System.key)
 
 ---
 
